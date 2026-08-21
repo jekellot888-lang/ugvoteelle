@@ -274,6 +274,47 @@ html {
   animation: marquee 34s linear infinite;
 }
 
+.milestone-rail {
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255, 209, 0, 0.08) inset;
+}
+
+.milestone-fill,
+.vote-progress-fill {
+  background: linear-gradient(90deg, #ffd100 0%, #fff8f5 48%, #d90000 100%);
+  transform: scaleX(var(--progress-scale, var(--bar-scale, 1)));
+  transform-origin: left center;
+}
+
+.milestone-fill {
+  animation: progress-rise 920ms var(--ease-out-strong) 120ms both, milestone-glow 2200ms var(--ease-in-out-strong) infinite;
+}
+
+.vote-progress-fill {
+  animation: bar-rise 720ms var(--ease-out-strong) both;
+  background: linear-gradient(90deg, rgba(217, 0, 0, 0.9), rgba(255, 209, 0, 0.72));
+}
+
+.vote-progress-fill.elle,
+.vote-progress-fill.reached {
+  background: linear-gradient(90deg, #ffd100, #fff8f5 52%, #ffd100);
+}
+
+.rank-card,
+.milestone-card {
+  transition:
+    transform 220ms var(--ease-out-strong),
+    border-color 220ms var(--ease-out-strong),
+    background-color 220ms var(--ease-out-strong),
+    box-shadow 220ms var(--ease-out-strong);
+}
+
+.rank-card-elle {
+  box-shadow:
+    0 0 0 1px rgba(255, 209, 0, 0.14) inset,
+    0 18px 48px rgba(255, 209, 0, 0.08);
+}
+
 .ug-stripe {
   background: linear-gradient(
     90deg,
@@ -419,6 +460,41 @@ html {
   }
 }
 
+@keyframes progress-rise {
+  from {
+    opacity: 0;
+    transform: scaleX(0.08);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(var(--progress-scale, 1));
+  }
+}
+
+@keyframes bar-rise {
+  from {
+    opacity: 0;
+    transform: scaleX(0.03);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(var(--bar-scale, 1));
+  }
+}
+
+@keyframes milestone-glow {
+  0%,
+  100% {
+    filter: saturate(1);
+  }
+
+  50% {
+    filter: saturate(1.18) brightness(1.12);
+  }
+}
+
 @supports not (animation-timeline: view()) {
   .flow-reveal {
     animation: none;
@@ -436,6 +512,13 @@ html {
 
   .pressable:hover {
     transform: translateY(-1px);
+  }
+
+  .rank-card:hover,
+  .milestone-card:hover {
+    border-color: rgba(255, 209, 0, 0.42);
+    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
+    transform: translateY(-3px);
   }
 }
 

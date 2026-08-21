@@ -14,6 +14,12 @@ export type LeaderboardCandidate = {
   isElle?: boolean;
 };
 
+export type VoteMilestone = {
+  label: string;
+  votes: number;
+  note: string;
+};
+
 export const UGX_PER_USD = 3850;
 
 export function priceUGX(priceUSD: number) {
@@ -47,22 +53,32 @@ export const campaign = {
   leaderboardSnapshot: {
     label: "Beauty With a Purpose leaderboard",
     source: "Manual snapshot from the official Miss World voting leaderboard",
-    capturedAt: "2026-08-21 07:29 EAT",
+    capturedAt: "2026-08-21 09:14 EAT",
+    nextMilestoneVotes: 6000,
+    milestones: [
+      { label: "Next push", votes: 6000, note: "Get Uganda clear of the rank-16 cluster" },
+      { label: "Top 10 chase", votes: 10000, note: "Make Uganda hard to ignore" },
+      { label: "Top 3 line", votes: 47143, note: "Move beyond the current third-place count" },
+      { label: "Take the lead", votes: 130699, note: "Beat the current leader by one vote" },
+    ] satisfies VoteMilestone[],
     candidates: [
       {
         country: "Uganda",
         name: "Trivia Elle Muhoza",
         votes: process.env.NEXT_PUBLIC_ELLE_OFFICIAL_VOTES
           ? Number(process.env.NEXT_PUBLIC_ELLE_OFFICIAL_VOTES)
-          : null,
+          : 5153,
         rank: process.env.NEXT_PUBLIC_ELLE_OFFICIAL_RANK
           ? Number(process.env.NEXT_PUBLIC_ELLE_OFFICIAL_RANK)
-          : null,
+          : 16,
         isElle: true,
       },
       { country: "Eritrea", name: "Snit Habteab Tewoldemedhin", votes: 130698, rank: 1 },
       { country: "Botswana", name: "Ruth Ngoni Thomas", votes: 70065, rank: 2 },
       { country: "Malawi", name: "Ireen Navicha", votes: 47142, rank: 3 },
+      { country: "Kenya", name: "Trizah Muhenge Akala", votes: 3661, rank: 17 },
+      { country: "Tanzania", name: "Latriecia Ian Sawe", votes: 3422, rank: 18 },
+      { country: "Zambia", name: "Adah Toonga Mushibi", votes: 2972, rank: 19 },
     ] satisfies LeaderboardCandidate[],
   },
   consentVersion: "2026-08-20-v1",

@@ -29,6 +29,11 @@ const featuredPackages = campaign.votingPackages.filter((item) => item.featured)
 const otherPackages = campaign.votingPackages.filter((item) => !item.featured);
 const primaryPackage = campaign.votingPackages[0];
 const powerPackage = campaign.votingPackages[3];
+const elleSnapshot = campaign.leaderboardSnapshot.candidates.find((candidate) => candidate.isElle);
+const elleRank = elleSnapshot?.rank ?? 16;
+const elleVotes = elleSnapshot?.votes ?? 5153;
+const nextMilestoneVotes = campaign.leaderboardSnapshot.nextMilestoneVotes;
+const nextMilestoneGap = Math.max(0, nextMilestoneVotes - elleVotes);
 
 const votingSteps: Array<{ number: string; title: string; note: string; icon: LucideIcon }> = [
   {
@@ -95,8 +100,8 @@ const platformCards: Array<{ icon: LucideIcon; title: string; body: string }> = 
   },
   {
     icon: Trophy,
-    title: "The gap is visible",
-    body: "The leaderboard snapshot shows who Uganda needs to catch, without pretending this site verifies official votes.",
+    title: "The chase is visible",
+    body: `Uganda is rank ${elleRank}. The page gives supporters one clean milestone: ${nextMilestoneGap.toLocaleString("en-US")} votes to reach ${nextMilestoneVotes.toLocaleString("en-US")}.`,
   },
   {
     icon: ShieldCheck,
@@ -216,9 +221,9 @@ export default function Home() {
 
           <div className="mt-8 grid gap-2 text-sm text-[#fff8f5]/66 sm:grid-cols-3">
             {[
+              `Rank ${elleRank} now: ${elleVotes.toLocaleString("en-US")} votes`,
+              `${nextMilestoneGap.toLocaleString("en-US")} votes to ${nextMilestoneVotes.toLocaleString("en-US")}`,
               "Official voting via 1VOTE / Eventista",
-              "Prices show USD and UGX",
-              "No made-up supporter totals",
             ].map((item) => (
               <p key={item} className="flex items-center justify-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-[#ffd100]" aria-hidden="true" />
@@ -248,7 +253,7 @@ export default function Home() {
           </div>
           <span className="uganda-thread flow-reveal mx-auto mt-10 block h-1.5 w-32" data-delay="1" />
           <p className="flow-reveal mt-10 font-serif text-xl font-light leading-relaxed text-[#561020]/78 sm:text-2xl" data-delay="2">
-            This page has one job: get supporters to the official Miss World vote, then help Team Elle follow up with the people who want to keep pushing.
+            This page has one job: get supporters to the official Miss World vote, then rally them around the next visible milestone: {nextMilestoneGap.toLocaleString("en-US")} more votes.
           </p>
         </div>
       </section>

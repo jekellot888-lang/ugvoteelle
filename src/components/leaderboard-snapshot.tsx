@@ -68,25 +68,23 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
   }, []);
 
   return (
-    <section id="leaderboard" className="relative overflow-hidden bg-[#090909] px-5 py-20 text-white sm:px-8">
-      <div className="ug-stripe absolute inset-x-0 top-0 h-1" />
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <p className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.24em] text-[#ffd100]">
+    <section id="leaderboard" className="relative overflow-hidden bg-[#fff8f5] px-6 py-20 text-[#561020] sm:py-28">
+      <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,#b76e79,transparent)]" />
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="flow-reveal">
+          <p className="eyebrow inline-flex items-center gap-2 text-[#b76e79]">
             <Trophy className="h-4 w-4" aria-hidden="true" />
-            Official leaderboard snapshot
+            Leaderboard snapshot
           </p>
-          <h2 className="mt-4 text-5xl font-black uppercase leading-[0.86] sm:text-7xl">
+          <h2 className="mt-6 font-display text-5xl font-normal leading-tight sm:text-6xl">
             Know the gap. Close it.
           </h2>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-white/66">
-            This graph is a manual snapshot from the official leaderboard. Vote
-            counts are not verified by this site, and they should be refreshed
-            from 1VOTE before launch posts go out.
+          <p className="mt-6 max-w-xl font-serif text-xl font-light leading-relaxed text-[#561020]/72">
+            A manual snapshot from the official leaderboard. Refresh it before launch posts go out.
           </p>
 
-          <div className="mt-8 border border-white/14 bg-white/[0.04] p-5">
-            <p className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#ffd100]">
+          <div className="mt-10 border border-[#561020]/12 bg-[#f7d6d0]/42 p-5">
+            <p className="eyebrow inline-flex items-center gap-2 text-[#b76e79]">
               <Clock className="h-4 w-4" aria-hidden="true" />
               Voting closes in
             </p>
@@ -97,17 +95,17 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
                 ["Min", timeLeft.minutes],
                 ["Sec", timeLeft.seconds],
               ].map(([label, value]) => (
-                <div key={label} className="border border-white/12 bg-black/40 p-3 text-center">
-                  <p className="text-3xl font-black tabular-nums text-white sm:text-4xl">
+                <div key={label} className="border border-[#561020]/10 bg-[#fff8f5] p-3 text-center">
+                  <p className="font-display text-3xl font-normal tabular-nums text-[#561020] sm:text-4xl">
                     {value.toString().padStart(2, "0")}
                   </p>
-                  <p className="mt-1 text-[0.64rem] font-black uppercase tracking-[0.18em] text-white/46">
+                  <p className="eyebrow mt-1 text-[0.6rem] text-[#561020]/48">
                     {label}
                   </p>
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-sm leading-6 text-white/56">
+            <p className="mt-4 font-serif text-base font-light leading-relaxed text-[#561020]/62">
               {timeLeft.expired
                 ? "Voting appears to be closed. Update the campaign state before sending traffic."
                 : "Every hour matters while the official leaderboard is moving."}
@@ -119,15 +117,17 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
           </div>
         </div>
 
-        <div className="border border-white/14 bg-[#151210] p-5 shadow-2xl">
-          <div className="flex flex-col gap-2 border-b border-white/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flow-reveal border border-[#561020]/12 bg-[#561020] p-5 text-[#fff8f5] shadow-[0_24px_70px_rgba(86,16,32,0.18)]" data-delay="1">
+          <div className="flex flex-col gap-2 border-b border-[#fff8f5]/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#c9956b]">
+              <p className="eyebrow text-[#b76e79]">
                 {campaign.leaderboardSnapshot.label}
               </p>
-              <h3 className="mt-2 text-3xl font-black uppercase">Leader to beat</h3>
+              <h3 className="mt-3 font-display text-4xl font-normal">Leader to beat</h3>
             </div>
-            <p className="text-sm text-white/52">{campaign.leaderboardSnapshot.capturedAt}</p>
+            <p className="font-serif text-base font-light text-[#f7d6d0]/56">
+              {campaign.leaderboardSnapshot.capturedAt}
+            </p>
           </div>
 
           <div className="mt-6 grid gap-4">
@@ -139,39 +139,39 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
                   key={candidate.country}
                   className={
                     candidate.isElle
-                      ? "border border-[#ffd100]/60 bg-[#ffd100]/10 p-4"
-                      : "border border-white/10 bg-black/26 p-4"
+                      ? "border border-[#b76e79]/70 bg-[#fff8f5]/10 p-4"
+                      : "border border-[#fff8f5]/10 bg-[#260710]/28 p-4"
                   }
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-xs font-black uppercase tracking-[0.18em] text-white/46">
+                      <p className="eyebrow text-[#f7d6d0]/46">
                         {candidate.rank ? `Rank ${candidate.rank}` : "Team Elle"}
                       </p>
-                      <h4 className="mt-1 text-2xl font-black uppercase">
+                      <h4 className="mt-2 font-display text-3xl font-normal">
                         {candidate.country}
                       </h4>
-                      <p className="mt-1 text-sm text-white/56">{candidate.name}</p>
+                      <p className="mt-1 font-serif text-base font-light text-[#f7d6d0]/60">{candidate.name}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-black tabular-nums">
+                      <p className="font-display text-3xl font-normal tabular-nums">
                         {formatVotes(candidate.votes)}
                       </p>
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/44">
+                      <p className="eyebrow text-[0.58rem] text-[#f7d6d0]/44">
                         official votes
                       </p>
                     </div>
                   </div>
 
-                  <div className="mt-4 h-3 overflow-hidden bg-white/10">
+                  <div className="mt-4 h-2 overflow-hidden bg-[#fff8f5]/12">
                     <div
-                      className={candidate.isElle ? "h-full bg-[#ffd100]" : "h-full bg-[#d90000]"}
+                      className={candidate.isElle ? "h-full bg-[#b76e79]" : "h-full bg-[#f7d6d0]/72"}
                       style={{ width: `${width}%` }}
                     />
                   </div>
 
                   {candidate.isElle ? (
-                    <p className="mt-3 text-sm leading-6 text-white/62">
+                    <p className="mt-3 font-serif text-base font-light leading-relaxed text-[#f7d6d0]/68">
                       {elleGap === null
                         ? "Add NEXT_PUBLIC_ELLE_OFFICIAL_VOTES to show the exact gap to first place."
                         : `${elleGap.toLocaleString("en-US")} more official votes puts Uganda above the current leader.`}
@@ -182,7 +182,7 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
             })}
           </div>
 
-          <p className="mt-5 text-xs leading-5 text-white/42">
+          <p className="mt-5 text-xs leading-5 text-[#f7d6d0]/42">
             {campaign.leaderboardSnapshot.source}. This campaign site tracks
             outbound clicks and self-attestations only.
           </p>

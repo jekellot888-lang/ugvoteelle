@@ -75,19 +75,18 @@ export function SupporterForm() {
 
   if (result) {
     return (
-      <section className="reveal-in relative overflow-hidden border border-black/14 bg-white p-5 shadow-[12px_12px_0_#d90000] sm:p-7">
-        <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#050505_0_33%,#ffd100_33%_66%,#d90000_66%)]" />
-        <p className="mt-3 text-xs font-black uppercase tracking-[0.24em] text-[#d90000]">
+      <section className="reveal-in relative overflow-hidden border border-[#561020]/12 bg-[#fff8f5] p-6 shadow-[0_24px_70px_rgba(86,16,32,0.12)] sm:p-8">
+        <div className="absolute inset-x-6 top-0 h-px bg-[#b76e79]/40" />
+        <p className="eyebrow mt-3 text-[#b76e79]">
           Welcome to Team Elle
         </p>
-        <h3 className="mt-3 max-w-xl text-4xl font-black uppercase leading-none sm:text-5xl">
-          You joined. Now bring 3 Ugandans with you.
+        <h3 className="mt-4 max-w-xl font-display text-4xl font-normal leading-tight sm:text-5xl">
+          You are in. Bring three Ugandans with you.
         </h3>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-black/66">
-          Your referral link is ready. Share it on WhatsApp and help the
-          campaign attribute new valid supporter registrations.
+        <p className="mt-5 max-w-2xl font-serif text-lg font-light leading-relaxed text-[#561020]/68">
+          Your referral link is ready. Share it where people will actually tap.
         </p>
-        <div className="mt-6 break-all border border-black/14 bg-[#fff9ef] p-4 font-mono text-sm shadow-inner">
+        <div className="mt-6 break-all border border-[#561020]/12 bg-[#f7d6d0]/40 p-4 font-mono text-sm text-[#561020]/72 shadow-inner">
           {result.referralUrl}
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -96,7 +95,7 @@ export function SupporterForm() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackCampaignEvent("whatsapp_share_clicked", { referral_code: result.referralCode })}
-            className="pressable inline-flex min-h-12 items-center justify-center gap-2 bg-[#128c7e] px-4 text-sm font-black uppercase text-white"
+            className="pressable inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#128c7e] px-4 text-sm font-semibold uppercase tracking-[0.14em] text-white"
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
             Share on WhatsApp
@@ -107,7 +106,7 @@ export function SupporterForm() {
               navigator.clipboard.writeText(result.referralUrl);
               trackCampaignEvent("copy_link_clicked", { referral_code: result.referralCode });
             }}
-            className="pressable inline-flex min-h-12 items-center justify-center gap-2 border border-black/18 px-4 text-sm font-black uppercase hover:border-[#d90000] hover:text-[#d90000]"
+            className="pressable inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#561020]/18 px-4 text-sm font-semibold uppercase tracking-[0.14em] hover:border-[#b76e79] hover:text-[#b76e79]"
           >
             <Copy className="h-4 w-4" aria-hidden="true" />
             Copy link
@@ -120,69 +119,69 @@ export function SupporterForm() {
   return (
     <form
       onSubmit={submitForm}
-      className="relative overflow-hidden border border-black/14 bg-white p-5 shadow-[12px_12px_0_#ffd100] sm:p-7"
+      className="relative overflow-hidden border border-[#561020]/12 bg-[#fff8f5] p-6 shadow-[0_24px_70px_rgba(86,16,32,0.12)] sm:p-8"
     >
-      <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#050505_0_33%,#ffd100_33%_66%,#d90000_66%)]" />
+      <div className="absolute inset-x-6 top-0 h-px bg-[#b76e79]/40" />
       <div className="mt-3 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-[#d90000]">
+          <p className="eyebrow text-[#b76e79]">
             Join Team Elle
           </p>
-          <h3 className="mt-2 text-3xl font-black uppercase leading-none">
+          <h3 className="mt-3 font-display text-4xl font-normal leading-tight">
             Your campaign pass
           </h3>
         </div>
-        <p className="max-w-xs text-xs font-bold uppercase tracking-[0.16em] text-black/46">
+        <p className="eyebrow max-w-xs text-[#561020]/42">
           Private supporter details
         </p>
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-bold">
+        <label className="grid gap-2 text-sm font-medium">
           First name
           <input
             name="firstName"
             required
-            className="min-h-12 border border-black/18 bg-[#fff9ef] px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
           />
         </label>
-        <label className="grid gap-2 text-sm font-bold">
+        <label className="grid gap-2 text-sm font-medium">
           Phone / WhatsApp
           <input
             name="phone"
             required
-            className="min-h-12 border border-black/18 bg-[#fff9ef] px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
           />
         </label>
-        <label className="grid gap-2 text-sm font-bold">
+        <label className="grid gap-2 text-sm font-medium">
           Country
           <input
             name="country"
             required
             defaultValue="Uganda"
-            className="min-h-12 border border-black/18 bg-[#fff9ef] px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
           />
         </label>
-        <label className="grid gap-2 text-sm font-bold">
+        <label className="grid gap-2 text-sm font-medium">
           Email optional
           <input
             name="email"
             type="email"
-            className="min-h-12 border border-black/18 bg-[#fff9ef] px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
           />
         </label>
-        <label className="grid gap-2 text-sm font-bold">
+        <label className="grid gap-2 text-sm font-medium">
           District / City optional
           <input
             name="district"
-            className="min-h-12 border border-black/18 bg-[#fff9ef] px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
           />
         </label>
-        <label className="grid gap-2 text-sm font-bold">
+        <label className="grid gap-2 text-sm font-medium">
           Age range optional
           <select
             name="ageRange"
-            className="min-h-12 border border-black/18 bg-[#fff9ef] px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
           >
             <option value="">Prefer not to say</option>
             <option>Under 18</option>
@@ -194,7 +193,7 @@ export function SupporterForm() {
         </label>
       </div>
 
-      <div className="mt-6 grid gap-3 border border-black/10 bg-[#fff9ef] p-4 text-sm leading-6">
+      <div className="mt-6 grid gap-3 border border-[#561020]/10 bg-[#f7d6d0]/34 p-4 text-sm leading-6 text-[#561020]/72">
         <label className="flex gap-3">
           <input name="termsConsent" type="checkbox" required className="mt-1 h-4 w-4" />
           <span>
@@ -208,17 +207,17 @@ export function SupporterForm() {
         </label>
       </div>
 
-      {error ? <p className="mt-4 text-sm font-bold text-[#d90000]">{error}</p> : null}
+      {error ? <p className="mt-4 text-sm font-semibold text-[#7a1f3d]">{error}</p> : null}
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="pressable mt-6 min-h-12 w-full bg-[#101010] px-5 text-sm font-black uppercase tracking-[0.08em] text-white hover:bg-[#d90000] disabled:cursor-wait disabled:opacity-70"
+        className="pressable mt-6 min-h-12 w-full rounded-full bg-[#561020] px-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#fff8f5] hover:bg-[#7a1f3d] disabled:cursor-wait disabled:opacity-70"
       >
         {status === "submitting" ? "Joining Team Elle..." : "Join Team Elle"}
       </button>
 
-      <p className="mt-4 text-xs leading-5 text-black/52">
+      <p className="mt-4 text-xs leading-5 text-[#561020]/52">
         Official voting remains on 1VOTE / Eventista. This form does not verify
         or guarantee an external vote.
       </p>

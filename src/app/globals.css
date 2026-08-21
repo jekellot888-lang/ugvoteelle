@@ -388,6 +388,76 @@ html {
   }
 }
 
+.vote-celebration {
+  background: radial-gradient(circle at 50% 48%, rgba(255, 209, 0, 0.16), transparent 30%);
+}
+
+.vote-thanks {
+  animation: thanks-pop 540ms var(--ease-out-strong) both;
+  background:
+    linear-gradient(180deg, rgba(5, 5, 5, 0.94), rgba(38, 7, 16, 0.9)),
+    linear-gradient(90deg, rgba(255, 209, 0, 0.18), rgba(217, 0, 0, 0.12));
+  border: 1px solid rgba(255, 209, 0, 0.28);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  max-width: 26rem;
+  padding: 1.4rem;
+}
+
+.ug-balloon {
+  animation: balloon-pop 980ms var(--ease-out-strong) both;
+  border-radius: 52% 52% 48% 48%;
+  bottom: 12%;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(255, 248, 245, 0.16) inset;
+  height: 3.1rem;
+  position: absolute;
+  transform: translateY(24px) scale(0.94);
+  width: 2.45rem;
+}
+
+.ug-balloon::after {
+  background: rgba(255, 248, 245, 0.34);
+  border-radius: 999px;
+  content: "";
+  height: 0.9rem;
+  left: 28%;
+  position: absolute;
+  top: 18%;
+  transform: rotate(24deg);
+  width: 0.38rem;
+}
+
+.ug-balloon::before {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 7px solid currentColor;
+  bottom: -6px;
+  color: inherit;
+  content: "";
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.ug-balloon-black {
+  animation-delay: 20ms;
+  background: #050505;
+  color: #050505;
+}
+
+.ug-balloon-yellow {
+  animation-delay: 90ms;
+  background: #ffd100;
+  color: #ffd100;
+}
+
+.ug-balloon-red {
+  animation-delay: 160ms;
+  background: #d90000;
+  color: #d90000;
+}
+
 @keyframes reveal-in {
   from {
     opacity: 0;
@@ -495,6 +565,35 @@ html {
   }
 }
 
+@keyframes thanks-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes balloon-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(38px) scale(0.94);
+  }
+
+  24% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(0.98);
+  }
+}
+
 @supports not (animation-timeline: view()) {
   .flow-reveal {
     animation: none;
@@ -534,5 +633,13 @@ html {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .vote-celebration {
+    background: transparent;
+  }
+
+  .ug-balloon {
+    display: none;
   }
 }

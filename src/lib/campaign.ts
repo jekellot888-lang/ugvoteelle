@@ -21,6 +21,8 @@ export type VoteMilestone = {
 };
 
 export const UGX_PER_USD = 3850;
+export const OFFICIAL_VOTING_URL =
+  "https://missworld.1voting.com/en/candidate/EVENT_dNWcJ/uganda-iLd8";
 
 export function priceUGX(priceUSD: number) {
   return priceUSD * UGX_PER_USD;
@@ -45,9 +47,7 @@ export const campaign = {
     title: "Miss Uganda",
     event: "Miss World",
   },
-  votingUrl:
-    process.env.NEXT_PUBLIC_OFFICIAL_VOTING_URL ??
-    "https://missworld.1voting.com/en/candidate/EVENT_dNWcJ/uganda-iLd8",
+  votingUrl: OFFICIAL_VOTING_URL,
   votingEndsAt:
     process.env.NEXT_PUBLIC_VOTING_ENDS_AT ?? "2026-09-04T18:00:00+03:00",
   leaderboardSnapshot: {

@@ -207,13 +207,13 @@ export default function Home() {
           <div id="vote" className="mt-10 grid w-full max-w-xl gap-4 sm:grid-cols-2">
             <div className="relative">
               <Heart className="pointer-events-none absolute left-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 fill-[#050505] text-[#050505]" />
-              <div className="[&_button]:pl-14 [&_button]:text-left">
+              <div className="[&_a]:justify-start [&_a]:pl-14 [&_a]:text-left">
                 <VoteHandoffModal packageOption={primaryPackage} label="Vote Elle free" variant="primary" />
               </div>
             </div>
             <div className="relative">
               <Crown className="pointer-events-none absolute left-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-[#f7d6d0]" />
-              <div className="[&_button]:pl-14 [&_button]:text-left">
+              <div className="[&_a]:justify-start [&_a]:pl-14 [&_a]:text-left">
                 <VoteHandoffModal packageOption={powerPackage} label="Power Uganda" variant="secondary" />
               </div>
             </div>

@@ -108,14 +108,16 @@ function Marquee() {
   const items = Array.from({ length: 12 }, (_, index) => index);
 
   return (
-    <div aria-hidden="true" className="overflow-hidden border-y border-[#b76e79]/20 bg-[#7a1f3d] py-4">
+    <div aria-hidden="true" className="overflow-hidden border-y border-[#ffd100]/35 bg-[#050505] py-4">
       <div className="marquee-track flex w-max">
         {[0, 1].map((set) => (
           <div key={set} className="flex shrink-0 items-center">
             {items.map((item) => (
               <span key={`${set}-${item}`} className="flex items-center whitespace-nowrap">
                 <span className="eyebrow text-[#fff8f5]">Miss World 2026</span>
-                <span className="mx-6 text-[#b76e79] sm:mx-8">*</span>
+                <span className="mx-6 text-[#ffd100] sm:mx-8">*</span>
+                <span className="eyebrow text-[#d90000]">Uganda</span>
+                <span className="mx-6 text-[#ffd100] sm:mx-8">*</span>
               </span>
             ))}
           </div>
@@ -129,6 +131,7 @@ export default function Home() {
   return (
     <main className="editorial-shell min-h-screen overflow-x-clip bg-[#fff8f5] pb-24 text-[#561020] lg:pb-0">
       <section className="campaign-hero relative isolate flex min-h-[92svh] items-center justify-center overflow-hidden px-6 py-24 text-[#fff8f5]">
+        <div className="uganda-thread absolute inset-x-0 top-0 z-20 h-1.5" />
         <Image
           src="/images/elle/elle-cover-center.jpg"
           alt=""
@@ -139,28 +142,29 @@ export default function Home() {
         />
         <div className="soft-vignette absolute inset-0 -z-10" />
         <div className="fine-noise absolute inset-0 -z-10" />
-        <div className="absolute inset-4 border border-[#b76e79]/18 sm:inset-8" />
+        <div className="absolute inset-4 border border-[#ffd100]/18 sm:inset-8" />
 
         <nav className="absolute inset-x-0 top-0 z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
           <Link href="/" className="pressable flex items-center gap-3" aria-label="Vote Elle Uganda home">
-            <span className="grid h-10 w-10 place-items-center rounded-full border border-[#b76e79]/45 bg-[#561020]/55 font-display text-lg italic text-[#f7d6d0]">
+            <span className="grid h-10 w-10 place-items-center rounded-full border border-[#ffd100]/45 bg-[#050505]/70 font-display text-lg italic text-[#ffd100]">
               E
             </span>
             <span>
-              <span className="eyebrow block text-[#b76e79]">Vote Elle</span>
+              <span className="eyebrow block text-[#ffd100]">Vote Elle</span>
               <span className="font-serif text-sm font-light tracking-[0.2em] text-[#fff8f5]/68">
                 Uganda
               </span>
             </span>
           </Link>
 
-          <Link href="#vote" className="eyebrow pressable rounded-full border border-[#fff8f5]/28 px-5 py-3 text-[#fff8f5]/86">
+          <Link href="#vote" className="eyebrow pressable rounded-full border border-[#ffd100]/45 px-5 py-3 text-[#ffd100]">
             Vote
           </Link>
         </nav>
 
         <div className="relative z-10 flex w-full max-w-4xl flex-col items-center text-center">
-          <p className="eyebrow text-[#b76e79]">Uganda is invited</p>
+          <p className="eyebrow text-[#ffd100]">Uganda is invited</p>
+          <div className="ug-flag mt-5 h-4 w-20 border border-[#fff8f5]/22" />
           <div className="mt-7 flex w-full max-w-sm items-center gap-4">
             <span className="rule-gold flex-1" />
             <span className="font-serif text-sm font-light uppercase tracking-[0.2em] text-[#f7d6d0]/82">
@@ -182,7 +186,7 @@ export default function Home() {
 
           <div id="vote" className="mt-10 grid w-full max-w-xl gap-4 sm:grid-cols-2">
             <div className="relative">
-              <Heart className="pointer-events-none absolute left-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 fill-[#561020] text-[#561020]" />
+              <Heart className="pointer-events-none absolute left-5 top-1/2 z-10 h-5 w-5 -translate-y-1/2 fill-[#050505] text-[#050505]" />
               <div className="[&_button]:pl-14 [&_button]:text-left">
                 <VoteHandoffModal packageOption={primaryPackage} label="Vote Elle free" variant="primary" />
               </div>
@@ -202,7 +206,7 @@ export default function Home() {
               "No made-up supporter totals",
             ].map((item) => (
               <p key={item} className="flex items-center justify-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-[#b76e79]" aria-hidden="true" />
+                <ShieldCheck className="h-4 w-4 text-[#ffd100]" aria-hidden="true" />
                 {item}
               </p>
             ))}
@@ -212,7 +216,7 @@ export default function Home() {
         <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3">
           <span className="eyebrow text-[0.6rem] text-[#fff8f5]/45">Scroll</span>
           <span className="relative h-10 w-px overflow-hidden bg-[#fff8f5]/16">
-            <span className="guide-pulse absolute inset-x-0 top-0 h-1/2 bg-[#b76e79]" />
+            <span className="guide-pulse absolute inset-x-0 top-0 h-1/2 bg-[#ffd100]" />
           </span>
         </div>
       </section>
@@ -222,12 +226,12 @@ export default function Home() {
       <section className="bg-[#fff8f5] px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flow-reveal">
-            <p className="eyebrow text-[#b76e79]">The voting invitation</p>
+            <p className="eyebrow text-[#d90000]">The voting invitation</p>
             <h2 className="mt-6 font-display text-4xl font-normal leading-tight text-balance sm:text-6xl">
               One vote is small. A country voting together is not.
             </h2>
           </div>
-          <span className="flow-reveal mx-auto mt-10 block h-px w-24 bg-[#b76e79]/50" data-delay="1" />
+          <span className="uganda-thread flow-reveal mx-auto mt-10 block h-1.5 w-32" data-delay="1" />
           <p className="flow-reveal mt-10 font-serif text-xl font-light leading-relaxed text-[#561020]/78 sm:text-2xl" data-delay="2">
             This page has one job: get supporters to the official Miss World vote, then help Team Elle follow up with the people who want to keep pushing.
           </p>
@@ -237,7 +241,7 @@ export default function Home() {
       <section id="how-to-vote" className="bg-[#f7d6d0] px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="flow-reveal text-center">
-            <p className="eyebrow text-[#b76e79]">How to vote</p>
+            <p className="eyebrow text-[#d90000]">How to vote</p>
             <h2 className="mt-6 font-display text-4xl font-normal text-[#561020] sm:text-5xl">
               Four taps. Then pass it on.
             </h2>
@@ -251,8 +255,8 @@ export default function Home() {
                 data-delay={String(index)}
               >
                 <div className="flex items-center justify-between gap-5">
-                  <p className="eyebrow text-[#b76e79]">{number}</p>
-                  <Icon className="h-6 w-6 text-[#b76e79]" aria-hidden="true" />
+                  <p className="eyebrow text-[#d90000]">{number}</p>
+                  <Icon className="h-6 w-6 text-[#050505]" aria-hidden="true" />
                 </div>
                 <h3 className="mt-6 font-display text-3xl font-normal leading-snug text-[#561020]">
                   {title}
@@ -266,11 +270,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#561020] px-6 py-20 text-[#fff8f5] sm:py-28">
+      <section className="relative bg-[#050505] px-6 py-20 text-[#fff8f5] sm:py-28">
+        <div className="uganda-thread absolute inset-x-0 top-0 h-1.5" />
         <div className="mx-auto max-w-6xl">
           <div className="flow-reveal flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <p className="eyebrow text-[#b76e79]">Official vote options</p>
+              <p className="eyebrow text-[#ffd100]">Official vote options</p>
               <h2 className="mt-6 font-display text-4xl font-normal leading-tight text-balance sm:text-6xl">
                 Choose the push that feels right.
               </h2>
@@ -284,24 +289,26 @@ export default function Home() {
             {featuredPackages.map((item, index) => (
               <article
                 key={item.votes}
-                className="flow-reveal bg-[#561020] p-7 text-center transition-colors duration-500 hover:bg-[#64152a]"
+                className="flow-reveal bg-[#111] p-7 text-center transition-colors duration-500 hover:bg-[#1a0f0f]"
                 data-delay={String(index)}
               >
-                <p className="eyebrow text-[#b76e79]">
+                <p className="eyebrow text-[#ffd100]">
                   {item.votes.toLocaleString()} vote{item.votes === 1 ? "" : "s"}
                 </p>
-                <p className="mt-5 font-display text-3xl font-normal text-[#f7d6d0]">
+                <p className="mt-5 font-display text-3xl font-normal text-[#fff8f5]">
                   {formatVotingPrice(item.priceUSD)}
                 </p>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#fff8f5]/56">
-                  {item.name}
+                  <span className={item.priceUSD === 0 ? "text-[#ffd100]" : "text-[#d90000]"}>
+                    {item.name}
+                  </span>
                 </p>
               </article>
             ))}
           </div>
 
           <details className="flow-reveal mt-8 text-center" data-delay="1">
-            <summary className="eyebrow pressable inline-flex cursor-pointer items-center gap-2 rounded-full border border-[#fff8f5]/18 px-6 py-4 text-[#f7d6d0]">
+            <summary className="eyebrow pressable inline-flex cursor-pointer items-center gap-2 rounded-full border border-[#ffd100]/35 px-6 py-4 text-[#ffd100]">
               More vote bundles <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </summary>
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -323,7 +330,7 @@ export default function Home() {
       <section className="bg-[#fff8f5] px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="flow-reveal text-center">
-            <p className="eyebrow text-[#b76e79]">The gallery</p>
+            <p className="eyebrow text-[#d90000]">The gallery</p>
             <h2 className="mt-6 font-display text-4xl font-normal text-[#561020] sm:text-5xl">
               Elle, in full color.
             </h2>
@@ -350,20 +357,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#7a1f3d] px-6 py-20 text-[#fff8f5] sm:py-28">
+      <section className="relative bg-[#7a1f3d] px-6 py-20 text-[#fff8f5] sm:py-28">
+        <div className="uganda-thread absolute inset-x-0 top-0 h-1.5" />
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
           <div className="flow-reveal">
-            <p className="eyebrow text-[#b76e79]">More than a crown</p>
+            <p className="eyebrow text-[#ffd100]">More than a crown</p>
             <h2 className="mt-6 font-display text-4xl font-normal leading-tight text-balance sm:text-6xl">
               A flag. A voice. A reason to rally.
             </h2>
-            <span className="mt-8 block h-px w-24 bg-[#b76e79]/60" />
+            <span className="uganda-thread mt-8 block h-1.5 w-28" />
             <p className="mt-8 font-serif text-xl font-light leading-relaxed text-[#f7d6d0]/82">
               Elle carries Uganda with grace, but she cannot carry the vote alone. This is where the country comes in.
             </p>
             <Link
               href="#join"
-              className="eyebrow pressable mt-10 inline-flex items-center gap-3 rounded-full border border-[#fff8f5]/22 px-8 py-4 text-[#fff8f5]/86"
+              className="eyebrow pressable mt-10 inline-flex items-center gap-3 rounded-full border border-[#ffd100]/38 px-8 py-4 text-[#ffd100]"
             >
               Join Team Elle <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
@@ -379,7 +387,7 @@ export default function Home() {
             />
             <div className="absolute inset-4 border border-[#b76e79]/25" />
             <div className="absolute inset-x-0 bottom-0 z-10 px-8 pb-8 text-center">
-              <p className="eyebrow text-[#b76e79]">Miss Uganda</p>
+              <p className="eyebrow text-[#ffd100]">Miss Uganda</p>
               <p className="script mt-4 text-4xl text-[#f7d6d0] sm:text-5xl">
                 Trivia Elle Muhoza
               </p>
@@ -391,7 +399,7 @@ export default function Home() {
       <section id="join" className="bg-[#fff8f5] px-6 py-20 text-[#561020] sm:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.76fr_1.24fr]">
           <div className="flow-reveal lg:sticky lg:top-8 lg:self-start">
-            <p className="eyebrow inline-flex items-center gap-2 text-[#b76e79]">
+            <p className="eyebrow inline-flex items-center gap-2 text-[#d90000]">
               <BadgeCheck className="h-4 w-4" aria-hidden="true" />
               After you vote
             </p>
@@ -404,7 +412,7 @@ export default function Home() {
             <div className="mt-8 grid gap-3">
               {["No voter account required", "Marketing consent is optional", "This form never verifies external votes"].map((item) => (
                 <p key={item} className="flex items-center gap-3 font-medium">
-                  <Check className="h-5 w-5 text-[#b76e79]" aria-hidden="true" />
+                  <Check className="h-5 w-5 text-[#d90000]" aria-hidden="true" />
                   {item}
                 </p>
               ))}
@@ -419,7 +427,7 @@ export default function Home() {
       <section className="bg-[#f7d6d0] px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="flow-reveal text-center">
-            <Crown className="mx-auto h-5 w-5 text-[#b76e79]" aria-hidden="true" />
+            <Crown className="mx-auto h-5 w-5 text-[#d90000]" aria-hidden="true" />
             <h2 className="mt-3 font-display text-4xl font-normal text-[#561020]">
               Team Uganda is growing
             </h2>
@@ -436,13 +444,15 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="script mt-12 text-center text-4xl text-[#b76e79] sm:text-5xl">
+          <p className="script mt-12 text-center text-4xl text-[#d90000] sm:text-5xl">
             One Woman. One Flag. One Uganda.
           </p>
+          <div className="uganda-thread mx-auto mt-8 h-1.5 w-32" />
         </div>
       </section>
 
-      <section className="bg-[#561020] px-6 py-20 text-[#fff8f5] sm:py-24">
+      <section className="relative bg-[#050505] px-6 py-20 text-[#fff8f5] sm:py-24">
+        <div className="uganda-thread absolute inset-x-0 top-0 h-1.5" />
         <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-3">
           {platformCards.map(({ icon: Icon, title, body }, index) => (
             <article
@@ -450,7 +460,7 @@ export default function Home() {
               className="flow-reveal border border-[#fff8f5]/12 p-7 transition-colors duration-500 hover:bg-[#64152a]"
               data-delay={String(index)}
             >
-              <Icon className="h-6 w-6 text-[#b76e79]" aria-hidden="true" />
+              <Icon className="h-6 w-6 text-[#ffd100]" aria-hidden="true" />
               <h3 className="mt-6 font-display text-3xl font-normal">{title}</h3>
               <p className="mt-4 font-serif text-lg font-light leading-relaxed text-[#f7d6d0]/68">{body}</p>
             </article>
@@ -459,8 +469,8 @@ export default function Home() {
       </section>
 
       <footer className="bg-[#fff8f5] px-6 py-12 text-center text-[#561020]">
-        <p className="script text-4xl text-[#b76e79]">One Woman. One Flag. One Uganda.</p>
-        <span className="mx-auto mt-10 block h-px w-24 bg-[#b76e79]/40" />
+        <p className="script text-4xl text-[#d90000]">One Woman. One Flag. One Uganda.</p>
+        <span className="uganda-thread mx-auto mt-10 block h-1.5 w-32" />
         <p className="eyebrow mt-10 text-[#561020]/52">Team Elle Uganda</p>
         <div className="mt-5 flex justify-center gap-5 text-sm">
           <Link href="/privacy" className="inline-flex items-center gap-1 text-[#561020]/68 hover:text-[#b76e79]">
@@ -472,7 +482,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#fff8f5]/12 bg-[#561020]/92 p-3 backdrop-blur lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#ffd100]/24 bg-[#050505]/92 p-3 backdrop-blur lg:hidden">
         <div className="grid grid-cols-[1fr_auto] gap-3">
           <VoteHandoffModal packageOption={primaryPackage} label="Vote Elle free" variant="primary" />
           <Link

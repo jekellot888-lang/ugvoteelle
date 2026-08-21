@@ -69,10 +69,10 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
 
   return (
     <section id="leaderboard" className="relative overflow-hidden bg-[#fff8f5] px-6 py-20 text-[#561020] sm:py-28">
-      <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,#b76e79,transparent)]" />
+      <div className="uganda-thread absolute inset-x-0 top-0 h-1.5" />
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.82fr_1.18fr]">
         <div className="flow-reveal">
-          <p className="eyebrow inline-flex items-center gap-2 text-[#b76e79]">
+          <p className="eyebrow inline-flex items-center gap-2 text-[#d90000]">
             <Trophy className="h-4 w-4" aria-hidden="true" />
             Leaderboard snapshot
           </p>
@@ -84,7 +84,7 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
           </p>
 
           <div className="mt-10 border border-[#561020]/12 bg-[#f7d6d0]/42 p-5">
-            <p className="eyebrow inline-flex items-center gap-2 text-[#b76e79]">
+            <p className="eyebrow inline-flex items-center gap-2 text-[#d90000]">
               <Clock className="h-4 w-4" aria-hidden="true" />
               Voting closes in
             </p>
@@ -117,10 +117,11 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
           </div>
         </div>
 
-        <div className="flow-reveal border border-[#561020]/12 bg-[#561020] p-5 text-[#fff8f5] shadow-[0_24px_70px_rgba(86,16,32,0.18)]" data-delay="1">
+        <div className="flow-reveal border border-[#ffd100]/18 bg-[#050505] p-5 text-[#fff8f5] shadow-[0_24px_70px_rgba(5,5,5,0.22)]" data-delay="1">
+          <div className="uganda-thread -mx-5 -mt-5 mb-5 h-1.5" />
           <div className="flex flex-col gap-2 border-b border-[#fff8f5]/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="eyebrow text-[#b76e79]">
+              <p className="eyebrow text-[#ffd100]">
                 {campaign.leaderboardSnapshot.label}
               </p>
               <h3 className="mt-3 font-display text-4xl font-normal">Leader to beat</h3>
@@ -139,7 +140,7 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
                   key={candidate.country}
                   className={
                     candidate.isElle
-                      ? "border border-[#b76e79]/70 bg-[#fff8f5]/10 p-4"
+                      ? "border border-[#ffd100]/70 bg-[#ffd100]/10 p-4"
                       : "border border-[#fff8f5]/10 bg-[#260710]/28 p-4"
                   }
                 >
@@ -165,7 +166,7 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
 
                   <div className="mt-4 h-2 overflow-hidden bg-[#fff8f5]/12">
                     <div
-                      className={candidate.isElle ? "h-full bg-[#b76e79]" : "h-full bg-[#f7d6d0]/72"}
+                      className={candidate.isElle ? "h-full bg-[#ffd100]" : "h-full bg-[#d90000]"}
                       style={{ width: `${width}%` }}
                     />
                   </div>

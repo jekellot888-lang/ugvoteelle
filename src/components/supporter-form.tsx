@@ -76,8 +76,8 @@ export function SupporterForm() {
   if (result) {
     return (
       <section className="reveal-in relative overflow-hidden border border-[#561020]/12 bg-[#fff8f5] p-6 shadow-[0_24px_70px_rgba(86,16,32,0.12)] sm:p-8">
-        <div className="absolute inset-x-6 top-0 h-px bg-[#b76e79]/40" />
-        <p className="eyebrow mt-3 text-[#b76e79]">
+        <div className="uganda-thread absolute inset-x-6 top-0 h-1.5" />
+        <p className="eyebrow mt-3 text-[#d90000]">
           Welcome to Team Elle
         </p>
         <h3 className="mt-4 max-w-xl font-display text-4xl font-normal leading-tight sm:text-5xl">
@@ -106,7 +106,7 @@ export function SupporterForm() {
               navigator.clipboard.writeText(result.referralUrl);
               trackCampaignEvent("copy_link_clicked", { referral_code: result.referralCode });
             }}
-            className="pressable inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#561020]/18 px-4 text-sm font-semibold uppercase tracking-[0.14em] hover:border-[#b76e79] hover:text-[#b76e79]"
+            className="pressable inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#561020]/18 px-4 text-sm font-semibold uppercase tracking-[0.14em] hover:border-[#d90000] hover:text-[#d90000]"
           >
             <Copy className="h-4 w-4" aria-hidden="true" />
             Copy link
@@ -121,10 +121,10 @@ export function SupporterForm() {
       onSubmit={submitForm}
       className="relative overflow-hidden border border-[#561020]/12 bg-[#fff8f5] p-6 shadow-[0_24px_70px_rgba(86,16,32,0.12)] sm:p-8"
     >
-      <div className="absolute inset-x-6 top-0 h-px bg-[#b76e79]/40" />
+      <div className="uganda-thread absolute inset-x-6 top-0 h-1.5" />
       <div className="mt-3 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div>
-          <p className="eyebrow text-[#b76e79]">
+          <p className="eyebrow text-[#d90000]">
             Join Team Elle
           </p>
           <h3 className="mt-3 font-display text-4xl font-normal leading-tight">
@@ -142,7 +142,7 @@ export function SupporterForm() {
           <input
             name="firstName"
             required
-            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
           />
         </label>
         <label className="grid gap-2 text-sm font-medium">
@@ -150,7 +150,7 @@ export function SupporterForm() {
           <input
             name="phone"
             required
-            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
           />
         </label>
         <label className="grid gap-2 text-sm font-medium">
@@ -159,7 +159,7 @@ export function SupporterForm() {
             name="country"
             required
             defaultValue="Uganda"
-            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
           />
         </label>
         <label className="grid gap-2 text-sm font-medium">
@@ -167,21 +167,21 @@ export function SupporterForm() {
           <input
             name="email"
             type="email"
-            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
           />
         </label>
         <label className="grid gap-2 text-sm font-medium">
           District / City optional
           <input
             name="district"
-            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
           />
         </label>
         <label className="grid gap-2 text-sm font-medium">
           Age range optional
           <select
             name="ageRange"
-            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#b76e79] focus:shadow-[0_0_0_3px_rgba(183,110,121,0.14)]"
+            className="min-h-12 border border-[#561020]/16 bg-[#f7d6d0]/34 px-3 font-normal outline-none transition-[border-color,box-shadow] focus:border-[#d90000] focus:shadow-[0_0_0_3px_rgba(217,0,0,0.12)]"
           >
             <option value="">Prefer not to say</option>
             <option>Under 18</option>
@@ -212,7 +212,7 @@ export function SupporterForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="pressable mt-6 min-h-12 w-full rounded-full bg-[#561020] px-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#fff8f5] hover:bg-[#7a1f3d] disabled:cursor-wait disabled:opacity-70"
+        className="pressable mt-6 min-h-12 w-full rounded-full bg-[#050505] px-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#ffd100] hover:bg-[#d90000] hover:text-[#fff8f5] disabled:cursor-wait disabled:opacity-70"
       >
         {status === "submitting" ? "Joining Team Elle..." : "Join Team Elle"}
       </button>

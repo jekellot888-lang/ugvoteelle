@@ -93,6 +93,56 @@ html {
     linear-gradient(0deg, rgba(5, 5, 5, 0.94) 0%, transparent 42%);
 }
 
+.photo-frame {
+  position: relative;
+}
+
+.photo-frame::after {
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(5, 3, 3, 0.16) 42%, rgba(5, 3, 3, 0.82) 100%),
+    linear-gradient(90deg, rgba(255, 209, 0, 0.12), transparent 38%, rgba(217, 0, 0, 0.16));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.photo-crop-safe {
+  transform: scale(1.08);
+  transform-origin: center;
+}
+
+.hero-photo-in {
+  animation: hero-photo-in 760ms var(--ease-out-strong) 80ms both;
+}
+
+.portrait-float {
+  animation: portrait-float 9s var(--ease-in-out-strong) infinite;
+}
+
+.flow-reveal {
+  animation: flow-reveal 620ms var(--ease-out-strong) both;
+  animation-range: entry 8% cover 28%;
+  animation-timeline: view();
+}
+
+.flow-reveal[data-delay="1"] {
+  animation-delay: 50ms;
+}
+
+.flow-reveal[data-delay="2"] {
+  animation-delay: 100ms;
+}
+
+.flow-reveal[data-delay="3"] {
+  animation-delay: 150ms;
+}
+
+.guide-pulse {
+  animation: guide-pulse 1400ms var(--ease-in-out-strong) infinite;
+}
+
 .ug-stripe {
   background: linear-gradient(
     90deg,
@@ -175,6 +225,64 @@ html {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes hero-photo-in {
+  from {
+    clip-path: inset(12% 12% 0 12%);
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes portrait-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes flow-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes guide-pulse {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .flow-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 

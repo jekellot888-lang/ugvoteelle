@@ -63,6 +63,29 @@ const platformCards: Array<{ icon: LucideIcon; title: string; body: string }> = 
   },
 ];
 
+const galleryPhotos = [
+  {
+    src: "/images/elle/elle-cover-smile.jpg",
+    alt: "Trivia Elle Muhoza smiling in a Ugandan-inspired gown",
+    objectPosition: "38% 48%",
+  },
+  {
+    src: "/images/elle/elle-cover-center.jpg",
+    alt: "Trivia Elle Muhoza standing in a Ugandan-inspired gown",
+    objectPosition: "40% 48%",
+  },
+  {
+    src: "/images/elle/elle-cover-hands.jpg",
+    alt: "Trivia Elle Muhoza smiling with hands posed near her necklace",
+    objectPosition: "39% 48%",
+  },
+  {
+    src: "/images/elle/elle-national-close.jpeg",
+    alt: "Trivia Elle Muhoza in a red, black, and gold national dress",
+    objectPosition: "50% 32%",
+  },
+];
+
 export default function Home() {
   return (
     <main className="editorial-shell min-h-screen bg-[#050303] pb-24 text-[#fff9ef] lg:pb-0">
@@ -171,23 +194,34 @@ export default function Home() {
             <div className="absolute bottom-24 right-0 h-64 w-32 rounded-l-full border border-white/10" />
             <div className="absolute inset-x-8 top-10 h-24 bg-[#ffd100]/20 blur-3xl" />
 
-            <div className="relative flex h-full min-h-[520px] items-end justify-center overflow-hidden">
+            <div className="hero-photo-in photo-frame relative flex h-full min-h-[520px] items-end justify-center overflow-hidden rounded-t-[18rem] border border-white/12 bg-[#120707]">
               <div className="absolute bottom-0 left-6 hidden h-[62%] w-28 bg-[linear-gradient(180deg,rgba(255,209,0,0.34),rgba(255,209,0,0.02))] opacity-70 lg:block" />
               <div className="absolute bottom-0 right-4 h-[82%] w-[78%] rounded-t-full bg-[radial-gradient(circle_at_48%_18%,rgba(255,236,172,0.28),transparent_20%),linear-gradient(180deg,rgba(116,18,20,0.34),rgba(0,0,0,0.08))]" />
               <Image
-                src="/images/elle-official-portrait-placeholder.svg"
-                alt="Placeholder for approved official portrait of Trivia Elle Muhoza"
-                width={900}
-                height={1200}
+                src="/images/elle/elle-national-full.jpeg"
+                alt="Trivia Elle Muhoza in a red, black, and gold Ugandan national dress"
+                width={970}
+                height={1280}
                 priority
-                className="relative z-10 max-h-[72vh] w-[88%] max-w-[520px] object-contain drop-shadow-[0_34px_58px_rgba(0,0,0,0.55)]"
+                className="relative z-10 max-h-[74vh] w-[88%] max-w-[520px] object-contain drop-shadow-[0_34px_58px_rgba(0,0,0,0.55)]"
               />
+
+              <div className="portrait-float photo-frame absolute bottom-10 right-0 z-20 hidden aspect-[2/3] w-36 overflow-hidden rounded-md border border-[#f8c66f]/40 bg-black shadow-[0_24px_54px_rgba(0,0,0,0.48)] sm:block lg:right-[-1.5rem] lg:w-44">
+                <Image
+                  src="/images/elle/elle-cover-smile.jpg"
+                  alt="Close portrait of Trivia Elle Muhoza smiling"
+                  width={1130}
+                  height={1253}
+                  className="photo-crop-safe h-full w-full object-cover object-[35%_45%]"
+                />
+              </div>
+
               <div className="absolute inset-x-8 bottom-0 z-20 bg-gradient-to-t from-[#050303] via-[#050303]/64 to-transparent px-5 pb-5 pt-24">
                 <p className="text-xs font-black uppercase tracking-[0.24em] text-[#f8c66f]">
-                  Approved portrait slot
+                  Trivia Elle Muhoza
                 </p>
                 <p className="mt-2 max-w-md text-sm leading-6 text-white/66">
-                  Replace this placeholder with Elle&apos;s official campaign photography.
+                  Miss Uganda carrying the Pearl of Africa to Miss World 2026.
                 </p>
               </div>
             </div>
@@ -197,7 +231,7 @@ export default function Home() {
 
       <section id="how-to-vote" className="relative bg-[#050303] px-5 py-10 sm:px-8">
         <div className="mx-auto max-w-7xl rounded-md border border-[#7c2730]/72 bg-black/58 px-5 py-7 shadow-[0_30px_80px_rgba(0,0,0,0.32)] sm:px-8 lg:-mt-8">
-          <div className="text-center">
+          <div className="flow-reveal text-center">
             <h2 className="font-display gold-text text-4xl font-bold uppercase leading-none sm:text-5xl">
               How to vote
             </h2>
@@ -208,8 +242,12 @@ export default function Home() {
 
           <div className="mt-8 grid gap-5 lg:grid-cols-4">
             {votingSteps.map(({ number, title, icon: Icon }, index) => (
-              <article key={number} className="relative grid gap-3 border-white/12 text-center lg:border-r lg:px-5 last:lg:border-r-0">
-                <span className="mx-auto grid h-11 w-11 place-items-center rounded-full bg-[#f5a0a8] text-sm font-black text-[#170607]">
+              <article
+                key={number}
+                className="flow-reveal relative grid gap-3 border-white/12 text-center lg:border-r lg:px-5 last:lg:border-r-0"
+                data-delay={String(index)}
+              >
+                <span className="guide-pulse mx-auto grid h-11 w-11 place-items-center rounded-full bg-[#f5a0a8] text-sm font-black text-[#170607]">
                   {number}
                 </span>
                 <Icon className="mx-auto h-8 w-8 text-[#f6c66f]" aria-hidden="true" />
@@ -225,7 +263,7 @@ export default function Home() {
             {featuredPackages.map((item) => (
               <article
                 key={item.votes}
-                className="card-lift min-h-28 rounded-md border border-[#7c2730] bg-white/[0.025] p-4 text-center first:border-[#f6c66f] first:bg-[#f6c66f]/12"
+                className="card-lift flow-reveal min-h-28 rounded-md border border-[#7c2730] bg-white/[0.025] p-4 text-center first:border-[#f6c66f] first:bg-[#f6c66f]/12"
               >
                 <p className="text-sm font-bold uppercase tracking-[0.08em] text-white/88">
                   {item.votes.toLocaleString()} vote{item.votes === 1 ? "" : "s"}
@@ -263,18 +301,18 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[linear-gradient(115deg,#2c0610_0%,#641422_54%,#0a0404_100%)] px-5 py-16 sm:px-8 lg:py-20">
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/50 to-transparent" />
         <div className="mx-auto grid max-w-7xl items-end gap-10 lg:grid-cols-[0.55fr_0.45fr]">
-          <div className="relative min-h-[360px] overflow-hidden">
+          <div className="flow-reveal relative min-h-[360px] overflow-hidden">
             <div className="absolute inset-x-8 bottom-0 h-[86%] rounded-t-full bg-[radial-gradient(circle_at_50%_18%,rgba(255,209,0,0.28),transparent_22%),linear-gradient(180deg,rgba(255,209,0,0.16),rgba(0,0,0,0.2))]" />
             <Image
-              src="/images/elle-official-portrait-placeholder.svg"
-              alt="Placeholder for Elle campaign photography"
-              width={900}
-              height={1200}
+              src="/images/elle/elle-full-seated.jpeg"
+              alt="Trivia Elle Muhoza seated in a Ugandan-inspired pageant gown"
+              width={948}
+              height={1280}
               className="relative mx-auto h-[420px] w-auto object-contain drop-shadow-[0_26px_48px_rgba(0,0,0,0.5)]"
             />
           </div>
 
-          <div className="relative z-10 pb-4">
+          <div className="flow-reveal relative z-10 pb-4" data-delay="1">
             <p className="font-display text-5xl italic leading-[0.95] text-[#f8c66f] sm:text-6xl">
               More than a crown.
               <br />
@@ -293,9 +331,47 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="relative overflow-hidden bg-[#050303] px-5 py-16 sm:px-8">
+        <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,#f6c66f,transparent)]" />
+        <div className="mx-auto max-w-7xl">
+          <div className="flow-reveal flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#f5a0a8]">
+                Campaign gallery
+              </p>
+              <h2 className="font-display gold-text mt-3 text-5xl font-bold uppercase leading-none sm:text-6xl">
+                Elle in full color.
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-6 text-white/62">
+              Official visuals are framed as campaign photography, with screenshot interface marks kept outside the visible crop.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {galleryPhotos.map((photo, index) => (
+              <figure
+                key={photo.src}
+                className="flow-reveal photo-frame card-lift aspect-[2/3] overflow-hidden rounded-md border border-white/12 bg-[#130909]"
+                data-delay={String(index)}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={1170}
+                  height={1406}
+                  className="photo-crop-safe h-full w-full object-cover"
+                  style={{ objectPosition: photo.objectPosition }}
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="join" className="bg-[#fff9ef] px-5 py-20 text-[#101010] sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1.22fr]">
-          <div className="lg:sticky lg:top-8 lg:self-start">
+          <div className="flow-reveal lg:sticky lg:top-8 lg:self-start">
             <p className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.24em] text-[#d90000]">
               <BadgeCheck className="h-4 w-4" aria-hidden="true" />
               Return flow
@@ -316,14 +392,16 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <SupporterForm />
+          <div className="flow-reveal" data-delay="1">
+            <SupporterForm />
+          </div>
         </div>
       </section>
 
       <section className="relative overflow-hidden bg-[#060606] px-5 py-16 sm:px-8">
         <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,209,0,0.1),transparent_28%)]" />
         <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="text-center">
+          <div className="flow-reveal text-center">
             <Crown className="mx-auto h-5 w-5 text-[#f6c66f]" aria-hidden="true" />
             <h2 className="mt-2 text-lg font-black uppercase tracking-[0.18em] text-[#f6c66f]">
               Team Uganda is growing
@@ -331,8 +409,12 @@ export default function Home() {
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-4">
-            {readinessStats.map(({ icon: Icon, label, value, note }) => (
-              <article key={label} className="border-white/12 text-center md:border-r md:last:border-r-0">
+            {readinessStats.map(({ icon: Icon, label, value, note }, index) => (
+              <article
+                key={label}
+                className="flow-reveal border-white/12 text-center md:border-r md:last:border-r-0"
+                data-delay={String(index)}
+              >
                 <Icon className="mx-auto h-7 w-7 text-[#f5a0a8]" aria-hidden="true" />
                 <p className="mt-4 text-2xl font-black text-white">{value}</p>
                 <p className="mt-2 text-xs font-black uppercase tracking-[0.12em] text-white/82">{label}</p>
@@ -350,8 +432,12 @@ export default function Home() {
 
       <section className="bg-[#090909] px-5 py-16 sm:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
-          {platformCards.map(({ icon: Icon, title, body }) => (
-            <article key={title} className="card-lift rounded-md border border-white/12 bg-white/[0.035] p-5">
+          {platformCards.map(({ icon: Icon, title, body }, index) => (
+            <article
+              key={title}
+              className="card-lift flow-reveal rounded-md border border-white/12 bg-white/[0.035] p-5"
+              data-delay={String(index)}
+            >
               <Icon className="h-6 w-6 text-[#ffd100]" aria-hidden="true" />
               <h3 className="mt-5 text-2xl font-black uppercase">{title}</h3>
               <p className="mt-3 text-sm leading-6 text-white/58">{body}</p>

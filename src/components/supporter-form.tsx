@@ -81,10 +81,10 @@ export function SupporterForm() {
           Welcome to Team Elle
         </p>
         <h3 className="mt-4 max-w-xl font-display text-4xl font-normal leading-tight sm:text-5xl">
-          You are in. Bring three Ugandans with you.
+          You are in. Now bring three more.
         </h3>
         <p className="mt-5 max-w-2xl font-serif text-lg font-light leading-relaxed text-[#561020]/68">
-          Your referral link is ready. Share it where people will actually tap.
+          Your link is ready. Send it to the people who will not ignore you.
         </p>
         <div className="mt-6 break-all border border-[#561020]/12 bg-[#f7d6d0]/40 p-4 font-mono text-sm text-[#561020]/72 shadow-inner">
           {result.referralUrl}
@@ -128,11 +128,11 @@ export function SupporterForm() {
             Join Team Elle
           </p>
           <h3 className="mt-3 font-display text-4xl font-normal leading-tight">
-            Your campaign pass
+            Get your share link
           </h3>
         </div>
         <p className="eyebrow max-w-xs text-[#561020]/42">
-          Private supporter details
+          Team Elle list
         </p>
       </div>
 
@@ -198,12 +198,12 @@ export function SupporterForm() {
           <input name="termsConsent" type="checkbox" required className="mt-1 h-4 w-4" />
           <span>
             I agree to the Campaign Terms and Privacy Notice. No purchase
-            necessary to enter the Team Elle supporter promotion.
+            is needed to support Elle.
           </span>
         </label>
         <label className="flex gap-3">
           <input name="marketingConsent" type="checkbox" className="mt-1 h-4 w-4" />
-          <span>Send me Elle&apos;s Miss World and Miss Uganda updates.</span>
+          <span>Send me Elle&apos;s Miss World updates.</span>
         </label>
       </div>
 
@@ -218,8 +218,7 @@ export function SupporterForm() {
       </button>
 
       <p className="mt-4 text-xs leading-5 text-[#561020]/52">
-        Official voting remains on 1VOTE / Eventista. This form does not verify
-        or guarantee an external vote.
+        This helps Team Elle follow up with supporters. Your actual vote still happens on 1VOTE.
       </p>
     </form>
   );

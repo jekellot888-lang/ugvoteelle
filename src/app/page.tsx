@@ -11,7 +11,6 @@ import {
   Globe2,
   Heart,
   HeartHandshake,
-  MapPin,
   Menu,
   ShieldCheck,
   ShoppingCart,
@@ -40,25 +39,25 @@ const votingSteps: Array<{ number: string; title: string; note: string; icon: Lu
   {
     number: "01",
     title: "Vote Elle",
-    note: "Open the official Miss World voting page.",
+    note: "Tap the official voting link and choose Uganda.",
     icon: Smartphone,
   },
   {
     number: "02",
-    title: "Choose Uganda",
-    note: "Confirm Trivia Elle Muhoza before you continue.",
+    title: "Use your free vote",
+    note: "Every supporter gets a free vote. Use it first.",
     icon: Flag,
   },
   {
     number: "03",
-    title: "Pick your vote",
-    note: "Use the free vote or any official paid package.",
+    title: "Add paid votes",
+    note: "Pay by card on 1VOTE, or send MTN Mobile Money locally.",
     icon: ShoppingCart,
   },
   {
     number: "04",
-    title: "Bring someone",
-    note: "Come back, join Team Elle, and share your link.",
+    title: "Send the link",
+    note: "Share it in your WhatsApp groups and ask three people to vote.",
     icon: CircleCheck,
   },
 ];
@@ -86,28 +85,28 @@ const galleryPhotos = [
   },
 ];
 
-const readinessStats: Array<{ icon: LucideIcon; label: string; value: string; note: string }> = [
-  { icon: Users, label: "Team Elle supporters", value: "Live after launch", note: "Supabase source" },
-  { icon: Globe2, label: "Countries represented", value: "From signups", note: "No estimate shown" },
-  { icon: MapPin, label: "Districts represented", value: "From signups", note: "No estimate shown" },
-  { icon: HeartHandshake, label: "Supporters today", value: "Live daily", note: "Valid registrations" },
+const rallyStats: Array<{ icon: LucideIcon; label: string; value: string; note: string }> = [
+  { icon: Users, label: "Votes now", value: elleVotes.toLocaleString("en-US"), note: `Uganda is rank ${elleRank}` },
+  { icon: Trophy, label: "Next target", value: nextMilestoneGap.toLocaleString("en-US"), note: `votes to ${nextMilestoneVotes.toLocaleString("en-US")}` },
+  { icon: Smartphone, label: "MTN line", value: campaign.mobileMoney.number, note: campaign.mobileMoney.registeredName },
+  { icon: HeartHandshake, label: "Ask today", value: "3 people", note: "One vote can become four" },
 ];
 
 const platformCards: Array<{ icon: LucideIcon; title: string; body: string }> = [
   {
     icon: Globe2,
-    title: "For Ugandans anywhere",
-    body: "One link for WhatsApp groups, Instagram bios, campus circles, diaspora chats, and QR posters.",
+    title: "For every Ugandan with a phone",
+    body: "Send the link to your WhatsApp group, class group, office group, church group, or diaspora circle.",
   },
   {
     icon: Trophy,
-    title: "The chase is visible",
-    body: `Uganda is rank ${elleRank}. The page gives supporters one clean milestone: ${nextMilestoneGap.toLocaleString("en-US")} votes to reach ${nextMilestoneVotes.toLocaleString("en-US")}.`,
+    title: "We know the next target",
+    body: `Elle is rank ${elleRank}. ${nextMilestoneGap.toLocaleString("en-US")} more votes takes Uganda to ${nextMilestoneVotes.toLocaleString("en-US")}.`,
   },
   {
     icon: ShieldCheck,
-    title: "Cards and MTN both work",
-    body: "Supporters can vote directly on 1VOTE, or send MTN Mobile Money locally for Team Elle to buy priced votes.",
+    title: "No card, no problem",
+    body: `Paid votes can go through 1VOTE, or by MTN Mobile Money to ${campaign.mobileMoney.number}, registered as ${campaign.mobileMoney.registeredName}.`,
   },
 ];
 
@@ -184,7 +183,7 @@ export default function Home() {
         </nav>
 
         <div className="relative z-10 flex w-full max-w-4xl flex-col items-center text-center">
-          <p className="eyebrow text-[#ffd100]">Uganda is invited</p>
+          <p className="eyebrow text-[#ffd100]">Uganda, it is time</p>
           <div className="ug-flag mt-5 h-4 w-20 border border-[#fff8f5]/22" />
           <div className="mt-7 flex w-full max-w-sm items-center gap-4">
             <span className="rule-gold flex-1" />
@@ -202,7 +201,7 @@ export default function Home() {
           </p>
 
           <p className="mt-8 max-w-2xl font-serif text-xl font-light leading-relaxed text-[#f7d6d0]/86 sm:text-2xl">
-            Miss Uganda is on the Miss World stage. Cast your official vote, then bring another Ugandan with you.
+            Elle is carrying our flag at Miss World. Vote now, add a paid-vote push if you can, then send this to three people who will actually tap.
           </p>
 
           <div id="vote" className="mt-10 grid w-full max-w-xl gap-4 sm:grid-cols-2">
@@ -224,7 +223,7 @@ export default function Home() {
             {[
               `Rank ${elleRank} now: ${elleVotes.toLocaleString("en-US")} votes`,
               `${nextMilestoneGap.toLocaleString("en-US")} votes to ${nextMilestoneVotes.toLocaleString("en-US")}`,
-              "Official voting via 1VOTE / Eventista",
+              `MTN: ${campaign.mobileMoney.number}`,
             ].map((item) => (
               <p key={item} className="flex items-center justify-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-[#ffd100]" aria-hidden="true" />
@@ -247,14 +246,14 @@ export default function Home() {
       <section className="bg-[#fff8f5] px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flow-reveal">
-            <p className="eyebrow text-[#d90000]">The voting invitation</p>
+            <p className="eyebrow text-[#d90000]">Uganda, let&apos;s move</p>
             <h2 className="mt-6 font-display text-4xl font-normal leading-tight text-balance sm:text-6xl">
-              One vote is small. A country voting together is not.
+              {nextMilestoneGap.toLocaleString("en-US")} votes gets Elle to {nextMilestoneVotes.toLocaleString("en-US")}. Let&apos;s make it happen.
             </h2>
           </div>
           <span className="uganda-thread flow-reveal mx-auto mt-10 block h-1.5 w-32" data-delay="1" />
           <p className="flow-reveal mt-10 font-serif text-xl font-light leading-relaxed text-[#561020]/78 sm:text-2xl" data-delay="2">
-            This page has one job: get supporters to the official Miss World vote, then rally them around the next visible milestone: {nextMilestoneGap.toLocaleString("en-US")} more votes.
+            Start with the free vote. If you can buy votes, use 1VOTE or send MTN Mobile Money to Tracy&apos;s line and Team Elle will push the bundle through.
           </p>
         </div>
       </section>
@@ -262,9 +261,9 @@ export default function Home() {
       <section id="how-to-vote" className="bg-[#f7d6d0] px-6 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="flow-reveal text-center">
-            <p className="eyebrow text-[#d90000]">How to vote</p>
+            <p className="eyebrow text-[#d90000]">How we push Elle</p>
             <h2 className="mt-6 font-display text-4xl font-normal text-[#561020] sm:text-5xl">
-              Four taps. Then pass it on.
+              Vote. Pay local if needed. Share.
             </h2>
           </div>
 
@@ -296,13 +295,13 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <div className="flow-reveal flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <p className="eyebrow text-[#ffd100]">Official vote options</p>
+              <p className="eyebrow text-[#ffd100]">Vote options</p>
               <h2 className="mt-6 font-display text-4xl font-normal leading-tight text-balance sm:text-6xl">
-                Choose the push that feels right.
+                Choose your push.
               </h2>
             </div>
             <p className="max-w-md font-serif text-lg font-light leading-relaxed text-[#f7d6d0]/72">
-              Vote directly on the official page, or use the MTN Mobile Money route if cards, debit cards, or PayPal are hard to use.
+              Tap a bundle to vote on 1VOTE. If cards or PayPal are a problem, send the UGX amount by MTN below.
             </p>
           </div>
 
@@ -384,13 +383,13 @@ export default function Home() {
         <div className="uganda-thread absolute inset-x-0 top-0 h-1.5" />
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
           <div className="flow-reveal">
-            <p className="eyebrow text-[#ffd100]">More than a crown</p>
+            <p className="eyebrow text-[#ffd100]">For the flag</p>
             <h2 className="mt-6 font-display text-4xl font-normal leading-tight text-balance sm:text-6xl">
-              A flag. A voice. A reason to rally.
+              This is bigger than one stage.
             </h2>
             <span className="uganda-thread mt-8 block h-1.5 w-28" />
             <p className="mt-8 font-serif text-xl font-light leading-relaxed text-[#f7d6d0]/82">
-              Elle carries Uganda with grace, but she cannot carry the vote alone. This is where the country comes in.
+              Elle has the crown, the story, and the flag. What she needs now is votes from home.
             </p>
             <Link
               href="#join"
@@ -427,13 +426,13 @@ export default function Home() {
               After you vote
             </p>
             <h2 className="mt-6 font-display text-5xl font-normal leading-tight sm:text-6xl">
-              Come back into the circle.
+              Bring your people in.
             </h2>
             <p className="mt-6 font-serif text-xl font-light leading-relaxed text-[#561020]/72">
-              Register as a supporter, get your referral link, and invite three people who will actually vote.
+              Leave your details, get your share link, and help us keep the pressure on until voting closes.
             </p>
             <div className="mt-8 grid gap-3">
-              {["No voter account required", "Marketing consent is optional", "This form never verifies external votes"].map((item) => (
+              {["Use your free vote first", "MTN is there for paid votes", "Share the link on WhatsApp"].map((item) => (
                 <p key={item} className="flex items-center gap-3 font-medium">
                   <Check className="h-5 w-5 text-[#d90000]" aria-hidden="true" />
                   {item}
@@ -452,12 +451,12 @@ export default function Home() {
           <div className="flow-reveal text-center">
             <Crown className="mx-auto h-5 w-5 text-[#d90000]" aria-hidden="true" />
             <h2 className="mt-3 font-display text-4xl font-normal text-[#561020]">
-              Team Uganda is growing
+              Today&apos;s push
             </h2>
           </div>
 
           <div className="mt-12 grid gap-px overflow-hidden border border-[#561020]/10 bg-[#561020]/10 md:grid-cols-4">
-            {readinessStats.map(({ icon: Icon, label, value, note }, index) => (
+            {rallyStats.map(({ icon: Icon, label, value, note }, index) => (
               <article key={label} className="flow-reveal bg-[#f7d6d0] p-8 text-center" data-delay={String(index)}>
                 <Icon className="mx-auto h-7 w-7 text-[#b76e79]" aria-hidden="true" />
                 <p className="mt-5 font-display text-3xl font-normal text-[#561020]">{value}</p>

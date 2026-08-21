@@ -24,13 +24,13 @@ export function MobileMoneyPanel() {
         <div className="bg-[#0b0b0b] p-6 sm:p-8">
           <p className="eyebrow inline-flex items-center gap-2 text-[#ffd100]">
             <Smartphone className="h-4 w-4" aria-hidden="true" />
-            No card? Use MTN Mobile Money
+            Pay with MTN
           </p>
           <h3 className="mt-5 font-display text-4xl font-normal leading-tight">
-            Send money locally for priced votes.
+            No card? Send Mobile Money.
           </h3>
           <p className="mt-4 font-serif text-lg font-light leading-relaxed text-[#f7d6d0]/70">
-            For supporters who cannot use credit cards, debit cards, or PayPal, send MTN Mobile Money to Tracy&apos;s line.
+            Many of us will not use cards or PayPal for this. Send your vote money to Tracy&apos;s MTN line and Team Elle will buy the priced votes for Elle.
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -59,7 +59,7 @@ export function MobileMoneyPanel() {
         </div>
 
         <div className="bg-[#111] p-6 sm:p-8">
-          <p className="eyebrow text-[#d90000]">Suggested MTN amounts</p>
+          <p className="eyebrow text-[#d90000]">Send this amount</p>
           <div className="mt-5 grid gap-3">
             {paidFeaturedPackages.map((item) => (
               <div key={item.votes} className="flex items-center justify-between gap-4 border-b border-[#fff8f5]/10 pb-3 last:border-b-0 last:pb-0">
@@ -76,7 +76,7 @@ export function MobileMoneyPanel() {
             ))}
           </div>
           <p className="mt-5 text-xs leading-5 text-[#f7d6d0]/46">
-            Use your name and vote bundle as the payment reason where possible. Team Elle uses these contributions to buy official priced votes for Elle.
+            Put your name and vote bundle in the reason if your phone gives you that option.
           </p>
         </div>
       </div>

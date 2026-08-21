@@ -26,7 +26,7 @@ const initialCountdown: CountdownParts = {
 };
 
 function formatVotes(votes: number | null) {
-  if (votes === null) return "Add Elle's latest count";
+  if (votes === null) return "Waiting for latest count";
   return votes.toLocaleString("en-US");
 }
 
@@ -102,13 +102,13 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
         <div className="flow-reveal">
           <p className="eyebrow inline-flex items-center gap-2 text-[#d90000]">
             <Trophy className="h-4 w-4" aria-hidden="true" />
-            Rank 16 snapshot
+            Elle&apos;s position
           </p>
           <h2 className="mt-6 font-display text-5xl font-normal leading-tight sm:text-6xl">
-            Give Uganda a target people can chase.
+            Rank 16 is not where Uganda stops.
           </h2>
           <p className="mt-6 max-w-xl font-serif text-xl font-light leading-relaxed text-[#561020]/72">
-            Elle is at rank {elleRank} with {formatVotes(elleVotes)} votes. The next clean push is {nextMilestoneVotes.toLocaleString("en-US")} votes.
+            Elle has {formatVotes(elleVotes)} votes. Our next job is simple: push her past {nextMilestoneVotes.toLocaleString("en-US")}.
           </p>
 
           <div className="mt-10 overflow-hidden border border-[#561020]/12 bg-[#050505] text-[#fff8f5] shadow-[0_24px_70px_rgba(5,5,5,0.18)]">
@@ -116,29 +116,29 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
             <div className="p-5">
               <p className="eyebrow inline-flex items-center gap-2 text-[#ffd100]">
                 <Flame className="h-4 w-4" aria-hidden="true" />
-                Next milestone
+                Next target
               </p>
               <div className="mt-5 grid gap-4 sm:grid-cols-[auto_1fr] sm:items-end">
                 <div>
                   <p className="font-display text-7xl font-normal leading-none tabular-nums text-[#ffd100]">
                     #{elleRank}
                   </p>
-                  <p className="eyebrow mt-2 text-[#fff8f5]/50">Uganda now</p>
+                  <p className="eyebrow mt-2 text-[#fff8f5]/50">Uganda today</p>
                 </div>
                 <div>
                   <p className="font-display text-4xl font-normal tabular-nums">
                     {formatVotes(elleVotes)}
                   </p>
                   <p className="mt-2 font-serif text-base font-light text-[#f7d6d0]/62">
-                    {nextMilestoneGap.toLocaleString("en-US")} votes to reach {nextMilestoneVotes.toLocaleString("en-US")}.
+                    {nextMilestoneGap.toLocaleString("en-US")} more votes takes Elle to {nextMilestoneVotes.toLocaleString("en-US")}.
                   </p>
                 </div>
               </div>
 
               <div className="mt-6">
                 <div className="flex items-center justify-between gap-3 text-xs uppercase tracking-[0.24em] text-[#fff8f5]/52">
-                  <span>{formatVotes(elleVotes)} now</span>
-                  <span>{nextMilestoneVotes.toLocaleString("en-US")} goal</span>
+                  <span>{formatVotes(elleVotes)} today</span>
+                  <span>{nextMilestoneVotes.toLocaleString("en-US")} next</span>
                 </div>
                 <div className="milestone-rail mt-3 h-3 overflow-hidden bg-[#fff8f5]/12">
                   <span
@@ -150,15 +150,15 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
 
               <div className="mt-5 grid gap-3 text-sm text-[#f7d6d0]/64 sm:grid-cols-2">
                 <p>
-                  Lead over rank 17:{" "}
+                  Ahead of rank 17:{" "}
                   <span className="font-semibold text-[#ffd100]">
-                    {chaserGap === null ? "refresh needed" : chaserGap.toLocaleString("en-US")}
+                    {chaserGap === null ? "checking" : chaserGap.toLocaleString("en-US")}
                   </span>
                 </p>
                 <p>
-                  Gap to first:{" "}
+                  To overtake first:{" "}
                   <span className="font-semibold text-[#ffd100]">
-                    {elleGap === null ? "refresh needed" : elleGap.toLocaleString("en-US")}
+                    {elleGap === null ? "checking" : elleGap.toLocaleString("en-US")}
                   </span>
                 </p>
               </div>
@@ -189,13 +189,13 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
             </div>
             <p className="mt-4 font-serif text-base font-light leading-relaxed text-[#561020]/62">
               {timeLeft.expired
-                ? "Voting appears to be closed. Update the campaign state before sending traffic."
-                : "Every hour matters while the official leaderboard is moving."}
+                ? "Voting has closed for now. Thank you for showing up for Elle."
+                : "Do not wait for the last day. Vote now, then send the link to someone else."}
             </p>
           </div>
 
           <div className="mt-5">
-            <VoteHandoffModal packageOption={votePackage} label="Vote now toward 6,000" variant="primary" />
+            <VoteHandoffModal packageOption={votePackage} label="Vote now for Elle" variant="primary" />
           </div>
         </div>
 
@@ -206,7 +206,7 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
               <p className="eyebrow text-[#ffd100]">
                 {campaign.leaderboardSnapshot.label}
               </p>
-              <h3 className="mt-3 font-display text-4xl font-normal">Milestone ladder</h3>
+              <h3 className="mt-3 font-display text-4xl font-normal">What we are chasing</h3>
             </div>
             <p className="font-serif text-base font-light text-[#f7d6d0]/56">
               {campaign.leaderboardSnapshot.capturedAt}
@@ -276,7 +276,7 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
                         {formatVotes(candidate.votes)}
                       </p>
                       <p className="eyebrow text-[0.58rem] text-[#f7d6d0]/44">
-                        official votes
+                        votes
                       </p>
                     </div>
                   </div>
@@ -291,8 +291,8 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
                   {candidate.isElle ? (
                     <p className="mt-3 font-serif text-base font-light leading-relaxed text-[#f7d6d0]/68">
                       {elleGap === null
-                        ? "Refresh Elle's official vote count before the next campaign push."
-                        : `${nextMilestoneGap.toLocaleString("en-US")} votes gets Uganda to the next visible milestone. ${elleGap.toLocaleString("en-US")} votes takes first.`}
+                        ? "Keep voting while we wait for the next count."
+                        : `${nextMilestoneGap.toLocaleString("en-US")} votes gets Elle to the next target. ${elleGap.toLocaleString("en-US")} votes takes first.`}
                     </p>
                   ) : null}
                 </article>
@@ -301,8 +301,7 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
           </div>
 
           <p className="mt-5 text-xs leading-5 text-[#f7d6d0]/42">
-            {campaign.leaderboardSnapshot.source}. This campaign site tracks
-            outbound clicks and self-attestations only.
+            Count taken from the Miss World leaderboard at {campaign.leaderboardSnapshot.capturedAt}. If the official board moves, we move faster.
           </p>
         </div>
       </div>

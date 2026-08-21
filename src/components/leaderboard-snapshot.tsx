@@ -17,6 +17,14 @@ type CountdownParts = {
   expired: boolean;
 };
 
+const initialCountdown: CountdownParts = {
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  expired: false,
+};
+
 function formatVotes(votes: number | null) {
   if (votes === null) return "Add Elle's latest count";
   return votes.toLocaleString("en-US");
@@ -45,7 +53,7 @@ function progressTo(currentVotes: number, targetVotes: number) {
 }
 
 export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackage }) {
-  const [timeLeft, setTimeLeft] = useState(() => countdownTo(campaign.votingEndsAt));
+  const [timeLeft, setTimeLeft] = useState(initialCountdown);
   const candidates = campaign.leaderboardSnapshot.candidates;
   const leader = candidates.find((candidate) => candidate.rank === 1);
   const leaderVotes = leader?.votes ?? 0;
@@ -74,11 +82,17 @@ export function LeaderboardSnapshot({ votePackage }: { votePackage: VotingPackag
   );
 
   useEffect(() => {
+    const firstFrame = window.requestAnimationFrame(() => {
+      setTimeLeft(countdownTo(campaign.votingEndsAt));
+    });
     const timer = window.setInterval(() => {
       setTimeLeft(countdownTo(campaign.votingEndsAt));
     }, 1000);
 
-    return () => window.clearInterval(timer);
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.clearInterval(timer);
+    };
   }, []);
 
   return (

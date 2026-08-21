@@ -12,6 +12,7 @@ import {
   Heart,
   HeartHandshake,
   MapPin,
+  Menu,
   ShieldCheck,
   ShoppingCart,
   Smartphone,
@@ -130,7 +131,7 @@ function Marquee() {
 export default function Home() {
   return (
     <main className="editorial-shell min-h-screen overflow-x-clip bg-[#fff8f5] pb-24 text-[#561020] lg:pb-0">
-      <section className="campaign-hero relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden px-5 pb-24 pt-44 text-[#fff8f5] sm:px-6 sm:pt-60">
+      <section className="campaign-hero relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden px-5 pb-24 pt-52 text-[#fff8f5] sm:px-6 sm:pt-56">
         <div className="uganda-thread absolute inset-x-0 top-0 z-20 h-1.5" />
         <Image
           src="/images/elle/elle-cover-center.jpg"
@@ -144,33 +145,36 @@ export default function Home() {
         <div className="fine-noise absolute inset-0 -z-10" />
         <div className="absolute inset-4 border border-[#ffd100]/18 sm:inset-8" />
 
-        <nav className="absolute inset-x-0 top-0 z-30 px-3 pt-3 sm:pt-4">
-          <Link
-            href="/"
-            className="campaign-masthead pressable relative mx-auto block w-full max-w-[600px] overflow-hidden bg-[#050505]"
-            aria-label="Vote Elle Uganda home"
-          >
-            <Image
-              src="/images/elle/elle-header-wide.png"
-              alt="Vote Elle Uganda campaign masthead"
-              width={600}
-              height={189}
-              priority
-              className="hidden h-auto w-full sm:block"
-            />
-            <Image
-              src="/images/elle/elle-header-compact.png"
-              alt="Vote Elle Uganda campaign masthead"
-              width={429}
-              height={99}
-              priority
-              className="block h-auto w-full sm:hidden"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_70%,rgba(5,5,5,0.18)_100%)]"
-            />
-          </Link>
+        <nav className="absolute inset-x-0 top-0 z-30 px-3 pt-2 sm:px-6 sm:pt-5">
+          <div className="campaign-nav mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-5 py-4 sm:px-8 sm:py-5">
+            <Link href="/" className="pressable justify-self-start" aria-label="Vote Elle Uganda home">
+              <span className="vote-logo block">
+                <span className="vote-logo-kicker">Vote</span>
+                <span className="vote-logo-word">Elle</span>
+                <span className="vote-logo-country">
+                  <span aria-hidden="true" />
+                  Uganda
+                  <span aria-hidden="true" />
+                </span>
+              </span>
+            </Link>
+
+            <Link href="#vote" className="flag-badge pressable" aria-label="Jump to vote options">
+              <span className="ug-flag h-8 w-14 rounded-sm border border-[#fff8f5]/18 sm:h-9 sm:w-16" />
+              <span className="flag-disc" aria-hidden="true" />
+            </Link>
+
+            <Link href="#vote" className="menu-mark pressable justify-self-end" aria-label="Jump to vote options">
+              <Menu className="h-9 w-9 sm:h-10 sm:w-10" strokeWidth={1.7} aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="campaign-title-strip mx-auto mt-0 flex w-full max-w-7xl items-center gap-2 overflow-hidden px-5 py-4 sm:px-8">
+            <span className="font-display text-base text-[#ffd100] sm:text-2xl">Miss World 2026</span>
+            <span className="text-[#ffd100]/72">•</span>
+            <span className="eyebrow text-[#fff8f5]">Uganda</span>
+            <span className="ug-flag h-3 w-6 border border-[#fff8f5]/18" aria-hidden="true" />
+          </div>
         </nav>
 
         <div className="relative z-10 flex w-full max-w-4xl flex-col items-center text-center">

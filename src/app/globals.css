@@ -117,12 +117,94 @@ html {
     var(--deep-wine);
 }
 
-.campaign-masthead {
+.campaign-nav {
+  background:
+    radial-gradient(circle at 14% 16%, rgba(255, 209, 0, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.98), rgba(5, 5, 5, 0.92));
   border: 1px solid rgba(255, 248, 245, 0.08);
-  border-radius: 20px 20px 0 0;
-  box-shadow:
-    0 22px 70px rgba(0, 0, 0, 0.36),
-    0 1px 0 rgba(255, 209, 0, 0.12) inset;
+  border-bottom-color: rgba(255, 209, 0, 0.12);
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+}
+
+.campaign-title-strip {
+  background:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.42)),
+    linear-gradient(110deg, rgba(255, 209, 0, 0.3), rgba(217, 0, 0, 0.2) 58%, transparent 76%);
+  border-bottom: 1px solid rgba(255, 209, 0, 0.14);
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.18);
+  text-transform: uppercase;
+}
+
+.vote-logo {
+  line-height: 1;
+  min-width: 92px;
+}
+
+.vote-logo-kicker {
+  color: rgba(255, 248, 245, 0.78);
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  margin-left: 0.34rem;
+  text-transform: uppercase;
+}
+
+.vote-logo-word {
+  background: linear-gradient(180deg, #fff8f5 0%, #ffd100 28%, #d69237 62%, #fff8f5 100%);
+  background-clip: text;
+  color: transparent;
+  display: block;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.35rem, 8.8vw, 4.7rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.vote-logo-country {
+  align-items: center;
+  color: rgba(255, 248, 245, 0.9);
+  display: flex;
+  font-size: 0.66rem;
+  font-weight: 700;
+  gap: 0.34rem;
+  letter-spacing: 0.26em;
+  margin-top: -0.12rem;
+  text-transform: uppercase;
+}
+
+.vote-logo-country span {
+  background: linear-gradient(90deg, #050505, #ffd100 35%, #d90000 70%, #050505);
+  display: block;
+  height: 2px;
+  width: 1.5rem;
+}
+
+.flag-badge {
+  align-items: center;
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+
+.flag-disc {
+  background:
+    radial-gradient(circle, rgba(255, 248, 245, 0.92) 0 36%, transparent 37%),
+    radial-gradient(circle, rgba(217, 0, 0, 0.46), transparent 58%);
+  border-radius: 999px;
+  height: 1rem;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+}
+
+.menu-mark {
+  color: rgba(255, 248, 245, 0.86);
+  filter: drop-shadow(0 1px 8px rgba(255, 248, 245, 0.12));
 }
 
 .flag-wave {

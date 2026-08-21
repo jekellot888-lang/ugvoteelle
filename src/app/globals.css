@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080808;
+  --foreground: #fff9ef;
+  --ug-red: #d90000;
+  --ug-yellow: #ffd100;
+  --rose-gold: #c9956b;
+  --ink: #101010;
+  --paper: #fff9ef;
+  --graphite: #151210;
+  --smoke: #2a2520;
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: var(--ug-yellow);
+  color: #080808;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.editorial-shell {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    #080808;
+  background-size: 72px 72px;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.gold-text {
+  background: linear-gradient(180deg, #fff6c9 0%, #f2b84e 50%, #fbd98a 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+.rose-text {
+  background: linear-gradient(180deg, #ffe8e8 0%, #f3a8ad 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+.ug-flag {
+  background: linear-gradient(
+    180deg,
+    #050505 0 16.66%,
+    #ffd100 16.66% 33.33%,
+    #d90000 33.33% 50%,
+    #050505 50% 66.66%,
+    #ffd100 66.66% 83.33%,
+    #d90000 83.33% 100%
+  );
+}
+
+.campaign-hero {
+  background:
+    radial-gradient(circle at 72% 32%, rgba(255, 209, 0, 0.16), transparent 27%),
+    radial-gradient(circle at 24% 18%, rgba(217, 0, 0, 0.2), transparent 24%),
+    linear-gradient(105deg, #040303 0%, #090604 39%, #1a0b0c 69%, #050404 100%);
+}
+
+.flag-wave {
+  background:
+    linear-gradient(130deg, transparent 0 14%, rgba(255, 209, 0, 0.72) 14% 26%, rgba(217, 0, 0, 0.76) 26% 38%, rgba(5, 5, 5, 0.8) 38% 50%, rgba(255, 209, 0, 0.68) 50% 61%, rgba(217, 0, 0, 0.72) 61% 74%, transparent 74% 100%),
+    radial-gradient(circle at 64% 40%, rgba(255, 255, 255, 0.22), transparent 18%);
+  filter: saturate(1.1);
+}
+
+.soft-vignette {
+  background:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.54) 43%, rgba(5, 5, 5, 0.24) 100%),
+    linear-gradient(0deg, rgba(5, 5, 5, 0.94) 0%, transparent 42%);
+}
+
+.ug-stripe {
+  background: linear-gradient(
+    90deg,
+    #050505 0 16.66%,
+    #ffd100 16.66% 33.33%,
+    #d90000 33.33% 50%,
+    #050505 50% 66.66%,
+    #ffd100 66.66% 83.33%,
+    #d90000 83.33% 100%
+  );
+}
+
+.fine-noise::after {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  content: "";
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  position: absolute;
+}
+
+.pressable {
+  transition:
+    transform 160ms var(--ease-out-strong),
+    border-color 180ms var(--ease-out-strong),
+    background-color 180ms var(--ease-out-strong),
+    color 180ms var(--ease-out-strong),
+    box-shadow 180ms var(--ease-out-strong);
+  will-change: transform;
+}
+
+.pressable:active {
+  transform: scale(0.975);
+}
+
+.reveal-in {
+  animation: reveal-in 420ms var(--ease-out-strong) both;
+}
+
+.stagger-1 {
+  animation-delay: 40ms;
+}
+
+.stagger-2 {
+  animation-delay: 80ms;
+}
+
+.stagger-3 {
+  animation-delay: 120ms;
+}
+
+.card-lift {
+  transition:
+    transform 220ms var(--ease-out-strong),
+    border-color 220ms var(--ease-out-strong),
+    background-color 220ms var(--ease-out-strong),
+    box-shadow 220ms var(--ease-out-strong);
+}
+
+.modal-panel {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition:
+    opacity 220ms var(--ease-out-strong),
+    transform 220ms var(--ease-out-strong);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-lift:hover {
+    border-color: rgba(255, 209, 0, 0.42);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+    transform: translateY(-4px);
+  }
+
+  .pressable:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

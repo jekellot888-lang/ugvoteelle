@@ -1,0 +1,33 @@
+<svg width="900" height="1125" viewBox="0 0 900 1125" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Approved Elle portrait placeholder</title>
+  <desc id="desc">Editorial placeholder for official photography of Trivia Elle Muhoza.</desc>
+  <defs>
+    <linearGradient id="bg" x1="132" y1="32" x2="798" y2="1091" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#211815"/>
+      <stop offset="0.48" stop-color="#0B0B0B"/>
+      <stop offset="1" stop-color="#17100E"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(450 320) rotate(90) scale(382 322)">
+      <stop stop-color="#C9956B" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#C9956B" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#FFF9EF" opacity="0.14"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="1125" fill="url(#bg)"/>
+  <rect width="900" height="1125" fill="url(#grain)" opacity="0.18"/>
+  <rect y="0" width="900" height="18" fill="#050505"/>
+  <rect y="18" width="900" height="18" fill="#FFD100"/>
+  <rect y="36" width="900" height="18" fill="#D90000"/>
+  <rect x="56" y="88" width="788" height="949" stroke="#FFF9EF" stroke-opacity="0.16"/>
+  <rect x="82" y="114" width="736" height="897" stroke="#FFD100" stroke-opacity="0.26"/>
+  <rect x="118" y="150" width="664" height="825" fill="#101010" stroke="#C9956B" stroke-opacity="0.36"/>
+  <rect x="118" y="150" width="664" height="825" fill="url(#halo)"/>
+  <path d="M450 258C342.857 258 256 344.857 256 452C256 559.143 342.857 646 450 646C557.143 646 644 559.143 644 452C644 344.857 557.143 258 450 258Z" fill="#1D1A18" stroke="#C9956B" stroke-width="2"/>
+  <path d="M235 913C281 755 353 680 450 680C547 680 619 755 665 913" stroke="#C9956B" stroke-width="2.5"/>
+  <path d="M220 863H680" stroke="#FFD100" stroke-opacity="0.45"/>
+  <text x="450" y="768" text-anchor="middle" fill="#FFF9EF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" letter-spacing="7">OFFICIAL PORTRAIT</text>
+  <text x="450" y="815" text-anchor="middle" fill="#FFD100" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" letter-spacing="5">TRIVIA ELLE MUHOZA</text>
+  <text x="450" y="973" text-anchor="middle" fill="#FFF9EF" opacity="0.66" font-family="Arial, Helvetica, sans-serif" font-size="18">Replace this SVG with approved Miss World campaign photography</text>
+</svg>

@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { campaign, formatVotingPrice } from "@/lib/campaign";
 import { LeaderboardSnapshot } from "@/components/leaderboard-snapshot";
+import { MobileMoneyPanel } from "@/components/mobile-money-panel";
 import { SupporterForm } from "@/components/supporter-form";
 import { VoteHandoffModal } from "@/components/vote-handoff-modal";
 
@@ -105,8 +106,8 @@ const platformCards: Array<{ icon: LucideIcon; title: string; body: string }> = 
   },
   {
     icon: ShieldCheck,
-    title: "The vote stays official",
-    body: "Every voting button hands supporters to 1VOTE/Eventista. Team Elle only tracks return signups and referrals.",
+    title: "Cards and MTN both work",
+    body: "Supporters can vote directly on 1VOTE, or send MTN Mobile Money locally for Team Elle to buy priced votes.",
   },
 ];
 
@@ -301,7 +302,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-md font-serif text-lg font-light leading-relaxed text-[#f7d6d0]/72">
-              Every option opens the same official voting page unless package-specific links become available.
+              Vote directly on the official page, or use the MTN Mobile Money route if cards, debit cards, or PayPal are hard to use.
             </p>
           </div>
 
@@ -326,6 +327,8 @@ export default function Home() {
               </article>
             ))}
           </div>
+
+          <MobileMoneyPanel />
 
           <details className="flow-reveal mt-8 text-center" data-delay="1">
             <summary className="eyebrow pressable inline-flex cursor-pointer items-center gap-2 rounded-full border border-[#ffd100]/35 px-6 py-4 text-[#ffd100]">

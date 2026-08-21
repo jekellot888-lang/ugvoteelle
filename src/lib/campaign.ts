@@ -48,6 +48,12 @@ export const campaign = {
     event: "Miss World",
   },
   votingUrl: OFFICIAL_VOTING_URL,
+  mobileMoney: {
+    provider: "MTN Mobile Money",
+    lineOwner: "Tracy",
+    number: "0761584386",
+    registeredName: "Muhoza Triyia",
+  },
   votingEndsAt:
     process.env.NEXT_PUBLIC_VOTING_ENDS_AT ?? "2026-09-04T18:00:00+03:00",
   leaderboardSnapshot: {

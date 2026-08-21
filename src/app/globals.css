@@ -117,6 +117,14 @@ html {
     var(--deep-wine);
 }
 
+.campaign-masthead {
+  border: 1px solid rgba(255, 248, 245, 0.08);
+  border-radius: 20px 20px 0 0;
+  box-shadow:
+    0 22px 70px rgba(0, 0, 0, 0.36),
+    0 1px 0 rgba(255, 209, 0, 0.12) inset;
+}
+
 .flag-wave {
   background:
     linear-gradient(130deg, transparent 0 14%, rgba(5, 5, 5, 0.8) 14% 24%, rgba(255, 209, 0, 0.72) 24% 34%, rgba(217, 0, 0, 0.76) 34% 44%, rgba(5, 5, 5, 0.8) 44% 54%, rgba(255, 209, 0, 0.68) 54% 64%, rgba(217, 0, 0, 0.72) 64% 74%, transparent 74% 100%),

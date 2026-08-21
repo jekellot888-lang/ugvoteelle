@@ -130,7 +130,7 @@ function Marquee() {
 export default function Home() {
   return (
     <main className="editorial-shell min-h-screen overflow-x-clip bg-[#fff8f5] pb-24 text-[#561020] lg:pb-0">
-      <section className="campaign-hero relative isolate flex min-h-[92svh] items-center justify-center overflow-hidden px-6 py-24 text-[#fff8f5]">
+      <section className="campaign-hero relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden px-5 pb-24 pt-44 text-[#fff8f5] sm:px-6 sm:pt-60">
         <div className="uganda-thread absolute inset-x-0 top-0 z-20 h-1.5" />
         <Image
           src="/images/elle/elle-cover-center.jpg"
@@ -144,21 +144,32 @@ export default function Home() {
         <div className="fine-noise absolute inset-0 -z-10" />
         <div className="absolute inset-4 border border-[#ffd100]/18 sm:inset-8" />
 
-        <nav className="absolute inset-x-0 top-0 z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-          <Link href="/" className="pressable flex items-center gap-3" aria-label="Vote Elle Uganda home">
-            <span className="grid h-10 w-10 place-items-center rounded-full border border-[#ffd100]/45 bg-[#050505]/70 font-display text-lg italic text-[#ffd100]">
-              E
-            </span>
-            <span>
-              <span className="eyebrow block text-[#ffd100]">Vote Elle</span>
-              <span className="font-serif text-sm font-light tracking-[0.2em] text-[#fff8f5]/68">
-                Uganda
-              </span>
-            </span>
-          </Link>
-
-          <Link href="#vote" className="eyebrow pressable rounded-full border border-[#ffd100]/45 px-5 py-3 text-[#ffd100]">
-            Vote
+        <nav className="absolute inset-x-0 top-0 z-30 px-3 pt-3 sm:pt-4">
+          <Link
+            href="/"
+            className="campaign-masthead pressable relative mx-auto block w-full max-w-[600px] overflow-hidden bg-[#050505]"
+            aria-label="Vote Elle Uganda home"
+          >
+            <Image
+              src="/images/elle/elle-header-wide.png"
+              alt="Vote Elle Uganda campaign masthead"
+              width={600}
+              height={189}
+              priority
+              className="hidden h-auto w-full sm:block"
+            />
+            <Image
+              src="/images/elle/elle-header-compact.png"
+              alt="Vote Elle Uganda campaign masthead"
+              width={429}
+              height={99}
+              priority
+              className="block h-auto w-full sm:hidden"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_70%,rgba(5,5,5,0.18)_100%)]"
+            />
           </Link>
         </nav>
 
